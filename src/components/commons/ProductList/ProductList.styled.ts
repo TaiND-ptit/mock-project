@@ -25,7 +25,7 @@ export const SortRight = styled.div`
 `;
 
 export const SortLabel = styled.span`
-font-size: 2.5rem;
+   font-size: 2.5rem;
    line-height: 3rem;
    color: #f12f09;
    text-transform: uppercase;
@@ -34,9 +34,14 @@ font-size: 2.5rem;
 
 
 
-// export const Wrapper = styled.div`
-
-// `;
+export const SortLabelBorder = styled.div`
+    position: absolute;
+    left: -21px;
+    bottom: -11px;
+    width: 180px;
+    height: 3.5px;
+    background-color: #f12f09;
+`;
 
 // export const Wrapper = styled.div`
 

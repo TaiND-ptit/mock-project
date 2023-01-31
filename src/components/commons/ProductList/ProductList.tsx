@@ -4,7 +4,8 @@ import {
     ProductListSort,
     SortLeft,
     SortRight,
-    SortLabel
+    SortLabel,
+    SortLabelBorder
 
 } from './ProductList.styled';
 
@@ -18,7 +19,7 @@ const ProductList = () => {
             </SortLabelBorder>
         </SortLeft>
         <SortRight>
-
+         
         </SortRight>
      </ProductListSort>
      <Product/>
