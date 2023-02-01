@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
   border-top: 4px solid ${({ theme }) => theme.colors.mainColor};
@@ -86,51 +86,3 @@ export const FooterDownloadAppLink = styled.div`
   text-decoration: none;
   padding: 2px 4px;
 `;
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `
-// export const FooterHeading = styled.div`
-// margin-top: 27px;
-// `

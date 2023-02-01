@@ -19,5 +19,14 @@ const GlobalStyles = createGlobalStyle`
        background-color: #F5F5F5;
     }
 
+    ul {
+        list-style-type: none;
+    }
+
+    a {
+        text-decoration: none;
+        background: transparent;
+    }
+
 `;
 export default GlobalStyles;

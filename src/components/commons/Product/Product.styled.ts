@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const ProductsContainer = styled.div`
   position: relative;
@@ -116,39 +116,3 @@ export const ProductsFavoriteText = styled.div`
   font-weight: 500;
   padding: 5px;
 `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;

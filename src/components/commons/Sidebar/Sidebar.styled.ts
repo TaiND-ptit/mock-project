@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -80,31 +80,3 @@ export const CatListLink = styled.a`
     margin-left: 10px;
   }
 `;
-
-// export const CartContainer = styled.div`
-
-// `;
-
-// export const CartContainer = styled.div`
-
-// `;
-
-// export const CartContainer = styled.div`
-
-// `;
-
-// export const CartContainer = styled.div`
-
-// `;
-
-// export const CartContainer = styled.div`
-
-// `;
-
-// export const CartContainer = styled.div`
-
-// `;
-
-// export const CartContainer = styled.div`
-
-// `;

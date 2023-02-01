@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,67 +20,3 @@ export const BannerMiddleImg = styled.img`
   background-position: 50%;
   cursor: pointer;
 `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;

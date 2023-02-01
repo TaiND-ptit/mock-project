@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.main`
   max-width: 1200px;
@@ -7,51 +7,3 @@ export const Wrapper = styled.main`
 `;
 
 export const SliderWrapper = styled.div``;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;
-
-// export const SliderWrapper = styled.div`
-
-// `;

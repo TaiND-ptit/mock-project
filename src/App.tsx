@@ -6,9 +6,12 @@ import Login from 'pages/Login/Login';
 import Header from 'components/commons/Header/Header';
 import Sidebar from 'components/commons/Sidebar/Sidebar';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import store from 'store/store';
 import HomePage from 'pages/HomePage/HomePage';
+import ProductDetail from 'pages/ProductDetail/ProductDetail';
+import Cart from 'pages/Cart/Cart';
+import MyAccount from 'pages/MyAccount/MyAccount';
 
 const theme = {
   colors: {
@@ -31,7 +34,13 @@ function App() {
             <BrowserRouter>
               <Header />
               <Sidebar />
-              <HomePage />
+              <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/product' element={<ProductDetail />} />
+                <Route path='/account' element={<MyAccount />} />
+              </Routes>
+
               <Footer />
               {/* <Login /> */}
             </BrowserRouter>

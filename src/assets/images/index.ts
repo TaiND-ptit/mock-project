@@ -26,12 +26,22 @@ import category9 from './cate-9.png';
 import category10 from './cate-10.png';
 import bannerMiddle from './banner-middle.jpg';
 import bannerExtra from './b-xtra.png';
+import freeExtra from './free-ship-xtra.png';
 import productExtra1 from './b-cate-1.jpg';
 import productExtra2 from './b-cate-2.jpg';
 import productExtra3 from './b-cate-3.jpg';
 import productExtra4 from './b-cate-4.jpg';
 import productExtra5 from './b-cate-5.jpg';
 import productExtra6 from './b-cate-6.jpg';
+import productDetail1 from './l-sp-1-1.jpg';
+import productDetail2 from './l-sp-1-2.jpg';
+import productDetail3 from './l-sp-1-3.jpg';
+import productDetail4 from './l-sp-1-4.jpg';
+import productDetail5 from './l-sp-1-5.jpg';
+import productDetail6 from './l-sp-1-6.jpg';
+import productDetail7 from './l-sp-1-7.jpg';
+import productDetail8 from './l-sp-1-8.jpg';
+import productDetail9 from './l-sp-1-9.jpg';
 
 import sp1 from './sp-2.jpg';
 import sp2 from './sp-3.jpg';
@@ -86,6 +96,8 @@ const images = {
 
   bannerExtra: { bannerExtra },
 
+  freeExtra: { freeExtra },
+
   productExtra: {
     productExtra1,
     productExtra2,
@@ -93,6 +105,18 @@ const images = {
     productExtra4,
     productExtra5,
     productExtra6
+  },
+
+  productDetail: {
+    productDetail1,
+    productDetail2,
+    productDetail3,
+    productDetail4,
+    productDetail5,
+    productDetail6,
+    productDetail7,
+    productDetail8,
+    productDetail9
   },
 
   sp: {

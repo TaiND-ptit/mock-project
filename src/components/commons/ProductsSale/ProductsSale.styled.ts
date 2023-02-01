@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const ProductsSaleContainer = styled.div`
   width: 46px;
@@ -22,7 +22,7 @@ export const ProductsSaleContainer = styled.div`
     border-width: 0 23px 4px;
   }
 
-  &.rightSize{
+  &.rightSize {
     right: 0;
   }
 `;

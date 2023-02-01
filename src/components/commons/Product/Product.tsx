@@ -17,12 +17,13 @@ import {
   ProductsFavoriteText
 } from './Product.styled';
 import ProductsSale from '../ProductsSale/ProductsSale';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
-    let rightSize: string = 'rightSize';
+  let rightSize: string = 'rightSize';
   return (
     <ProductsContainer>
-      <a>
+      <Link to='/product/'>
         <ProductList>
           <ProductItem>
             <ProductImg src={images.productExtra.productExtra6}></ProductImg>
@@ -46,10 +47,10 @@ const Product = () => {
               <ProductsFavoriteIcon className='fas fa-check'></ProductsFavoriteIcon>
               <ProductsFavoriteText>Yêu thích</ProductsFavoriteText>
             </ProductsFavorite>
-            <ProductsSale rightSize={rightSize}/>
+            <ProductsSale rightSize={rightSize} />
           </ProductItem>
         </ProductList>
-      </a>
+      </Link>
     </ProductsContainer>
   );
 };

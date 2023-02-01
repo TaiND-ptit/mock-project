@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const SliderContainer = styled.div`
   display: flex;
@@ -50,15 +50,3 @@ export const BannerRightImg = styled.img`
   height: 124px;
   border-radius: 2px;
 `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;
-
-// export const Wrapper = styled.div`
-
-// `;

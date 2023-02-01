@@ -1,81 +1,24 @@
+import { Wrapper, CategoryContainer, CategoryBox, CategoryBoxList } from './Category.styled';
 import images from 'assets/images';
-import {
-  Wrapper,
-  CategoryContainer,
-  CategoryBox,
-  CategoryBoxList,
-  CategoryBoxItem,
-  CategoryBoxLink,
-  CategoryBoxImg,
-  CategoryBoxText
-} from './Category.styled';
+import CategoryItem from '../CategoryItem/CategoryItem';
 
 const Category = () => {
+  console.log(typeof images.category.category1);
   return (
     <Wrapper>
       <CategoryContainer>
         <CategoryBox>
           <CategoryBoxList>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category1} alt='image-category' />
-                <CategoryBoxText>Tech Zone - Siêu Thị Điện Tử </CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category2} alt='image-category' />
-                <CategoryBoxText>Gì Cũng Rẻ - Từ 1K </CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category3} alt='image-category' />
-                <CategoryBoxText>Hoàn Xu 20% - Đơn Từ 0Đ</CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category4} alt='image-category' />
-                <CategoryBoxText>Nạp Thẻ, Hóa Đơn & E-voucher</CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category5} alt='image-category' />
-                <CategoryBoxText>Shopee Số Gì Đây </CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category6} alt='image-category' />
-                <CategoryBoxText>Freeship Xtra 70k Mỗi Ngày </CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category7} alt='image-category' />
-                <CategoryBoxText>Hàng Hiệu -50%</CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category8} alt='image-category' />
-                <CategoryBoxText>Hàng Quốc Tế - Deal Đồng Giá </CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category9} alt='image-category' />
-                <CategoryBoxText>Shopee Premium</CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
-            <CategoryBoxItem>
-              <CategoryBoxLink>
-                <CategoryBoxImg src={images.category.category10} alt='image-category' />
-                <CategoryBoxText>Yên Tâm Mua Hàng </CategoryBoxText>
-              </CategoryBoxLink>
-            </CategoryBoxItem>
+            <CategoryItem srcImg={images.category.category1} categoryText='Tech Zone - Siêu Thị Điện Tử' />
+            <CategoryItem srcImg={images.category.category2} categoryText='Gì Cũng Rẻ - Từ 1K ' />
+            <CategoryItem srcImg={images.category.category3} categoryText='Hoàn Xu 20% - Đơn Từ 0Đ' />
+            <CategoryItem srcImg={images.category.category4} categoryText='Nạp Thẻ, Hóa Đơn & E-voucher' />
+            <CategoryItem srcImg={images.category.category5} categoryText='Shopee Số Gì Đây ' />
+            <CategoryItem srcImg={images.category.category6} categoryText='Freeship Xtra 70k Mỗi Ngày ' />
+            <CategoryItem srcImg={images.category.category7} categoryText='Hàng Hiệu -50% ' />
+            <CategoryItem srcImg={images.category.category8} categoryText='Hàng Quốc Tế - Deal Đồng Giá' />
+            <CategoryItem srcImg={images.category.category9} categoryText='Shopee Premium' />
+            <CategoryItem srcImg={images.category.category10} categoryText='Yên Tâm Mua Hàng' />
           </CategoryBoxList>
         </CategoryBox>
       </CategoryContainer>
