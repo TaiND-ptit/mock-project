@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FooterLinkIcon } from '../Footer/Footer.styled';
 import Navbar from '../Navbar/Navbar';
 import {
@@ -60,11 +61,15 @@ const Header = () => {
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               <ListLinkItem>
-                <TopLinkIconText>Đăng kí</TopLinkIconText>
+                <Link to=''>
+                  <TopLinkIconText>Đăng kí</TopLinkIconText>
+                </Link>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               <ListLinkItem>
-                <TopLinkIconText>Đăng nhập</TopLinkIconText>
+                <Link to='/login'>
+                  <TopLinkIconText>Đăng nhập</TopLinkIconText>
+                </Link>
               </ListLinkItem>
             </ListTopLink>
           </NavbarRight>

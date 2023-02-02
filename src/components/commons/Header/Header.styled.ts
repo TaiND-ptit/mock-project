@@ -48,6 +48,12 @@ export const ListLinkItem = styled.li`
     margin-left: 8px;
     margin-right: 8px;
   }
+
+  a {
+    font-size: 14px;
+  text-decoration: none;
+  color: unset;
+  }
 `;
 export const ItemLink = styled.a`
   font-size: 14px;

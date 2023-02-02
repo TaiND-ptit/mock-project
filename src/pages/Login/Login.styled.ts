@@ -182,10 +182,11 @@ export const FormOptionsHeading = styled.p`
   color: rgba(0, 0, 0, 0.3);
 `;
 
-export const FormRegiser = styled.a`
+export const FormRegister = styled.div`
+ a{
   font-size: 2.3rem;
   line-height: 2.5rem;
   color: ${({ theme }) => theme.colors.mainColorSecond};
   padding-left: 6px;
-  text-decoration: none;
+ }
 `;

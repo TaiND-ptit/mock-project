@@ -7,12 +7,12 @@ export const Header = styled.header`
 `;
 
 export const NavbarMenu = styled.header`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const NavbarMenuContent = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 export const NavbarMenuLeft = styled.div`

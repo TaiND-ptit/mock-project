@@ -41,8 +41,9 @@ export const NavbarBrand = styled.a`
 
 export const NavbarBrandIcon = styled.span``;
 
-export const NavbarBrandLogo = styled.a`
-  margin-left: 8px;
+export const NavbarBrandLogo = styled.div`
+a{
+    margin-left: 8px;
   margin-right: 8px;
   text-decoration: none;
   .logo_shopee {
@@ -51,6 +52,8 @@ export const NavbarBrandLogo = styled.a`
     width: 160px;
     height: 46px;
   }
+}
+
 `;
 
 export const NavbarCollapse = styled.div`

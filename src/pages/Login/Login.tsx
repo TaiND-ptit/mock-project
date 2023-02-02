@@ -25,10 +25,11 @@ import {
   FormLoginSocialContainer,
   FormOptions,
   FormOptionsHeading,
-  FormRegiser
+  FormRegister
 } from './Login.styled';
 import images from 'assets/images';
 import { Button, Form, Input } from 'antd';
+import { Link } from 'react-router-dom';
 
 const onFinish = (values: any) => {
   console.log('Success:', values);
@@ -46,7 +47,6 @@ const Login = () => {
       <Container>
         <FormLoginLeft>
           <FormLoginLeftImg src={images.formLeft.loginImg} alt='background register' />
-          {/* <FormLoginLeftImg style={{ backgroundImage: `url(${images.formLeft.loginImg})`}}/> */}
         </FormLoginLeft>
         <FormLoginRight>
           <FormLoginRegister>
@@ -62,11 +62,34 @@ const Login = () => {
             >
               <FormHeading>Đăng Nhập</FormHeading>
               <FormSpacer></FormSpacer>
-              <Form.Item name='username' rules={[{ required: true, message: 'Please input your username!' }]}>
-                <InputLogin placeholder='Email/Số điện thoại/Tên đăng nhập' />
+              <Form.Item
+                name='username'
+                rules={[
+                  { required: true, message: 'Please input your username!' },
+                  {
+                    min: 3,
+                    message: "Tên đăng nhập nằm trong khoảng 3 đến 20",
+                  },
+                  {
+                    max: 20,
+                    message: "Tên đăng nhập nằm trong khoảng 3 đến 20",
+                  },
+                ]}>
+                <InputLogin placeholder='Tên đăng nhập' />
               </Form.Item>
 
-              <Form.Item name='password' rules={[{ required: true, message: 'Please input your password!' }]}>
+              <Form.Item name='password' rules={[
+                { required: true, message: 'Please input your password!' },
+                {
+                  min: 3,
+                  message: "Mật khẩu nằm trong khoảng 3 đến 8",
+                },
+                {
+                  max: 8,
+                  message: "Mật khẩu nằm trong khoảng 3 đến 8",
+                },
+
+              ]}>
                 <InputLogin placeholder='Nhập mật khẩu' />
               </Form.Item>
 
@@ -106,7 +129,9 @@ const Login = () => {
               </FormLoginSocial>
               <FormOptions>
                 <FormOptionsHeading>Bạn mới biết đến Shopee?</FormOptionsHeading>
-                <FormRegiser href=''>Đăng ký</FormRegiser>
+                <FormRegister>
+                  <Link to='/register'>Đăng ký</Link>
+                </FormRegister>
               </FormOptions>
             </Form>
           </FormLoginRegister>
