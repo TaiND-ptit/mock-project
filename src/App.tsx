@@ -12,6 +12,7 @@ import HomePage from 'pages/HomePage/HomePage';
 import ProductDetail from 'pages/ProductDetail/ProductDetail';
 import Cart from 'pages/Cart/Cart';
 import MyAccount from 'pages/MyAccount/MyAccount';
+import Register from 'pages/Register/Register';
 
 const theme = {
   colors: {
@@ -36,7 +37,8 @@ function App() {
               <Sidebar />
               <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/login' element={<Login/>} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register/>} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/product' element={<ProductDetail />} />
                 <Route path='/account' element={<MyAccount />} />

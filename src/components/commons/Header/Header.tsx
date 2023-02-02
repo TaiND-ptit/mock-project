@@ -61,7 +61,7 @@ const Header = () => {
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               <ListLinkItem>
-                <Link to=''>
+                <Link to='/register'>
                   <TopLinkIconText>Đăng kí</TopLinkIconText>
                 </Link>
               </ListLinkItem>
