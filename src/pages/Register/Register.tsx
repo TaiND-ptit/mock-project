@@ -50,7 +50,7 @@ const Register = () => {
       password: values.password
     };
      
-    console.log(registerData,'registerData');
+    // console.log(registerData,'registerData');
     registerUserMutation.mutate(registerData, {
       onSuccess: () => {
         navigate('/login');

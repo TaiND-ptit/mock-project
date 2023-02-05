@@ -1,19 +1,11 @@
 import styled from 'styled-components';
 
 export const CartContainer = styled.div`
-  position: absolute;
-  right: -10px;
-  top: calc(100% + 10px);
-  // background-color: ${({ theme }) => theme.colors.whiteColor};
-  background-color: #000;
+  background-color: ${({ theme }) => theme.colors.whiteColor};
   width: 360px;
   box-shadow: rgba(100, 100, 111, 0.25) 0px 7px 29px 0px;
-  padding: 1.8rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  // visibility: hidden;
-  opacity: 0.5;
   transition: all 300ms ease-in-out;
-  z-index: 99;
   height: 460px;
   overflow-y: scroll;
 

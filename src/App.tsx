@@ -13,6 +13,7 @@ import ProductDetail from 'pages/ProductDetail/ProductDetail';
 import Cart from 'pages/Cart/Cart';
 import MyAccount from 'pages/MyAccount/MyAccount';
 import Register from 'pages/Register/Register';
+import SearchPage from 'pages/SearchPage/SearchPage';
 
 const theme = {
   colors: {
@@ -41,6 +42,7 @@ function App() {
                 <Route path='/register' element={<Register/>} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/product' element={<ProductDetail />} />
+                <Route path='/search/:searchTerm' element={<SearchPage />} />
                 <Route path='/account' element={<MyAccount />} />
               </Routes>
 

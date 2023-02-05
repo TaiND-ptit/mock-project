@@ -19,25 +19,36 @@ import {
 import ProductsSale from '../ProductsSale/ProductsSale';
 import { Link } from 'react-router-dom';
 
-const Product = () => {
+interface Props {
+  productId: number,
+  productName: string,
+  productDescription: string,
+  productImg: string,
+  productPrice: number
+}
+
+const Product: React.FC<Props> = (props) => {
+  const { productId, productImg, productPrice, productName, productDescription } = props;
   let rightSize: string = 'rightSize';
   return (
+  
     <ProductsContainer>
-      <Link to='/product/'>
+      <Link to={`/product/${productId}`}>
         <ProductList>
           <ProductItem>
-            <ProductImg src={images.productExtra.productExtra6}></ProductImg>
+       
+            <ProductImg src={`http://dung.fresher.ameladev.click/storage/uploads/${productImg}`}></ProductImg>
             <ProductContent>
               <ProductsImgName>
                 <ProductsNameContent>
-                  Túi xách nữ công sở đeo chéo kẹp nách đeo vai tote da thời trang cao cấp giá rẻ 88STORE- TX024
+                  {productName}
                 </ProductsNameContent>
               </ProductsImgName>
 
               <ProductsPrice>
                 <ProductsPriceMain>
                   <ProductsPriceFirst>₫</ProductsPriceFirst>
-                  <ProductsPriceNew>260.000</ProductsPriceNew>
+                  <ProductsPriceNew>{productPrice}</ProductsPriceNew>
                 </ProductsPriceMain>
 
                 <ProductsPriceAmount>Đã bán 1k</ProductsPriceAmount>

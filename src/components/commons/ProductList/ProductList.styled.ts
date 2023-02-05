@@ -50,4 +50,8 @@ export const ProductListContainer = styled.div`
   margin-right: -6px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+`;
+export const ProductLoading = styled.div`
+  margin: 20px;
 `;

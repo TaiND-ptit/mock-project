@@ -42,6 +42,7 @@ import productDetail6 from './l-sp-1-6.jpg';
 import productDetail7 from './l-sp-1-7.jpg';
 import productDetail8 from './l-sp-1-8.jpg';
 import productDetail9 from './l-sp-1-9.jpg';
+import userImg from './user.jpg';
 
 import sp1 from './sp-2.jpg';
 import sp2 from './sp-3.jpg';
@@ -53,6 +54,8 @@ const images = {
     googlePlay,
     appStore
   },
+
+  userImg: {userImg},
 
   formLeft: { loginImg },
 

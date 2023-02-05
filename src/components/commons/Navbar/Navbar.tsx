@@ -21,13 +21,21 @@ import {
   CartIcon,
   SearchIcon
 } from './Navbar.styled';
-
+import HeadlessTippy from '@tippyjs/react/headless';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSidebarOn } from '../../../store/sidebarSlice';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getCategorys } from 'api/category.api';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const categorysQuery = useQuery({
+    queryKey: ['categorys'],
+    queryFn: () => getCategorys(),
+    keepPreviousData: true
+  });
+  console.log(categorysQuery?.data?.data);
   return (
     <Wrapper>
       <NavbarContainer>
@@ -59,22 +67,21 @@ const Navbar = () => {
           </NavbarSearch>
 
           <CategoryList>
-            <CategoryItem>
-              <CategoryLink>Laptop</CategoryLink>
-            </CategoryItem>
-            <CategoryItem>
-              <CategoryLink>Jearn</CategoryLink>
-            </CategoryItem>
-            <CategoryItem>
-              <CategoryLink>Vays</CategoryLink>
-            </CategoryItem>
-            <CategoryItem>
-              <CategoryLink>Quan</CategoryLink>
-            </CategoryItem>
+            {categorysQuery?.data?.data.data.map((category: any, index: any) => (
+              <CategoryItem key={index}>
+                <CategoryLink>{category.name}</CategoryLink>
+              </CategoryItem>
+            ))}
           </CategoryList>
         </NavbarCollapse>
         <NavbarCart>
-          <CartBtn>
+        <HeadlessTippy
+          interactive
+          render={(attrs) => (
+            <CartModal/>
+          )}
+          >
+  <CartBtn>
             <CartIcon>
               <svg
                 className='cart-icon'
@@ -104,6 +111,8 @@ const Navbar = () => {
             <CartItemValue>2</CartItemValue>
             {/* <CartModal/> */}
           </CartBtn>
+          </HeadlessTippy>
+        
         </NavbarCart>
       </NavbarContainer>
     </Wrapper>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FooterLinkIcon } from '../Footer/Footer.styled';
 import Navbar from '../Navbar/Navbar';
+import HeadlessTippy from '@tippyjs/react/headless';
 import {
   HeaderContainer,
   Wrapper,
@@ -14,10 +15,32 @@ import {
   NavbarRight,
   TopLinkItem,
   TopLinkIconText,
-  NavbarBottom
+  NavbarBottom,
+  UserLogin,
+  ListItemUserImg,
+  ListItemUserName,
+  ListLinkItemUserLogin,
+  UserUser,
+  InfoUser,
+  InfoListUser
 } from './Header.styled';
+import images from 'assets/images';
+import { useMemo, useState } from 'react';
+import http from 'utils/http';
 
 const Header = () => {
+  const username: any = localStorage.getItem('userLogin');
+  const tokenLocalStorage: any = localStorage.getItem('login');
+  const [userCurrent, setUserCurrent] = useState<string>(String(username));
+  const [token, setToken] = useState<string>(String(tokenLocalStorage));
+
+  const handleLogOut = () => {
+    http.get('/logout')
+      
+      localStorage.removeItem('userLogin');
+      localStorage.removeItem('login');
+  };
+
   return (
     <Wrapper>
       <HeaderContainer>
@@ -60,17 +83,45 @@ const Header = () => {
                 </TopLinkItem>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
-              <ListLinkItem>
-                <Link to='/register'>
-                  <TopLinkIconText>Đăng kí</TopLinkIconText>
-                </Link>
-              </ListLinkItem>
-              <ListLinkItem className='vert-line'></ListLinkItem>
-              <ListLinkItem>
-                <Link to='/login'>
-                  <TopLinkIconText>Đăng nhập</TopLinkIconText>
-                </Link>
-              </ListLinkItem>
+              { userCurrent && token && (
+                <HeadlessTippy
+                  interactive
+                  render={(attrs) => (
+                    <UserUser {...attrs}>
+                      <InfoUser>
+                        <InfoListUser>
+                          <Link to='/account'>Tài khoản của tôi</Link>
+                        </InfoListUser>
+                        <InfoListUser onClick={handleLogOut}>Đăng xuất</InfoListUser>
+                      </InfoUser>
+                    </UserUser>
+                  )}
+                >
+                  <ListLinkItemUserLogin>
+                    <UserLogin>
+                      <ListItemUserImg src={images.userImg.userImg} alt='user' />
+                      <ListItemUserName>{userCurrent}</ListItemUserName>
+                    </UserLogin>
+                  </ListLinkItemUserLogin>
+                </HeadlessTippy>
+              )}
+              { !!userCurrent && !!token &&
+                (
+                  <>
+                    <ListLinkItem>
+                      <Link to='/register'>
+                        <TopLinkIconText>Đăng kí</TopLinkIconText>
+                      </Link>
+                    </ListLinkItem>
+                    <ListLinkItem className='vert-line'></ListLinkItem>
+                    <ListLinkItem>
+                      <Link to='/login'>
+                        <TopLinkIconText>Đăng nhập</TopLinkIconText>
+                      </Link>
+                    </ListLinkItem>
+                  </>
+                )
+              } 
             </ListTopLink>
           </NavbarRight>
         </NavbarTop>
