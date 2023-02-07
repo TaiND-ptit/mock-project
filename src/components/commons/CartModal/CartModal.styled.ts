@@ -68,8 +68,7 @@ export const CartModalItemImg = styled.img`
 export const CartModalItemTitle = styled.div`
   font-size: 13px;
   text-transform: capitalize;
-  color: ${({ theme }) => theme.colors.whiteColor};
-  // color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.85);
   line-height: 1.4;
 `;
 
@@ -81,15 +80,22 @@ export const CartModalItemPrice = styled.div`
 export const ViewCartBtn = styled.button`
   background-color: ${({ theme }) => theme.colors.mainColor};
   text-transform: capitalize;
+  border: none;
   font-size: 15px;
   display: inline-block;
-  width: 200px;
-  padding: 5px 1rem;
-  margin-top: 1.8rem;
-  margin-left: auto;
+  // width: 200px;
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 5px;
+  right: 32%;
   border-radius: 2px;
   text-align: center;
   margin: auto;
+
+  a{
+    color: ${({ theme }) => theme.colors.whiteColor}
+  }
+  
 `;
 
 export const CartModalEmpty = styled.div`

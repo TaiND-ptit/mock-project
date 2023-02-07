@@ -33,7 +33,6 @@ const ProductList: React.FC<Props> = (props) => {
   // const totalProductsCount = Number(productsQuery?.data?.data?.data?.total || 0);
   // const totalPage = Math.ceil(totalProductsCount / LIMIT);
 
-  // console.log(productsQuery?.data?.data?.data?.data);
   return (
     <Wrapper>
       <ProductListSort>

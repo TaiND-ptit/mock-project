@@ -1,7 +1,6 @@
 import images from 'assets/images';
 import {
   CartContainer,
-  CartModalTitle,
   CartModalList,
   CartModalItem,
   CartModalItemImgCnt,
@@ -13,33 +12,42 @@ import {
   CartModalEmptyImg,
   CartModalEmptyText
 } from './CartModal.styled';
-
-const CartModal = () => {
+import { Link } from 'react-router-dom';
+interface Props {
+  carts: any;
+}
+const CartModal: React.FC<Props> = (props) => {
+  const { carts } = props;
+  const cartLength = carts.length;
   return (
     <CartContainer>
-      <CartModalTitle>Recenlty Added Products</CartModalTitle>
-      {/* <CartModalList>
-                <CartModalItem>
-                    <CartModalItemImgCnt>
-                        <CartModalItemImg src={images.sp.sp1} alt='' />
-                    </CartModalItemImgCnt>
-                    <CartModalItemTitle>
-                        bảo vệ đôi chân của bạn trên mọi chặng đường
-                    </CartModalItemTitle>
-                    <CartModalItemPrice>
-                        1.000.000d
-                    </CartModalItemPrice>
-                </CartModalItem>
+      {cartLength > 0 ? (
+        <CartModalList>
+          {carts.map((cart: any) => {
+            return (
+              <CartModalItem key={cart.id}>
+                <CartModalItemImgCnt>
+                  <CartModalItemImg
+                    src={`http://dung.fresher.ameladev.click/storage/uploads/${cart.images[0].image}`}
+                    alt=''
+                  />
+                </CartModalItemImgCnt>
+                <CartModalItemTitle>{cart.name}</CartModalItemTitle>
+                <CartModalItemPrice>{cart.price}đ</CartModalItemPrice>
+              </CartModalItem>
+            );
+          })}
 
-                <ViewCartBtn>
-                    view my shopping cart
-                </ViewCartBtn>
-            </CartModalList> */}
-
-      <CartModalEmpty>
-        <CartModalEmptyImg src={images.cartEmpty.CartEmpty} alt='' />
-        <CartModalEmptyText>Chưa có sản phẩm</CartModalEmptyText>
-      </CartModalEmpty>
+          <ViewCartBtn>
+            <Link to='/cart'>Xem giỏ hàng</Link>
+          </ViewCartBtn>
+        </CartModalList>
+      ) : (
+        <CartModalEmpty>
+          <CartModalEmptyImg src={images.cartEmpty.CartEmpty} alt='' />
+          <CartModalEmptyText>Chưa có sản phẩm</CartModalEmptyText>
+        </CartModalEmpty>
+      )}
     </CartContainer>
   );
 };

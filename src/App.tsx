@@ -41,8 +41,8 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register/>} />
                 <Route path='/cart' element={<Cart />} />
-                <Route path='/product' element={<ProductDetail />} />
-                <Route path='/search/:searchTerm' element={<SearchPage />} />
+                <Route path='/product/:id' element={<ProductDetail />} />
+                <Route path='/search/:searchText' element={<SearchPage />} />
                 <Route path='/account' element={<MyAccount />} />
               </Routes>
 
