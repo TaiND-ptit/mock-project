@@ -33,7 +33,7 @@ export const SidebarShowBtn = styled.button`
   }
 `;
 
-export const NavbarBrand = styled.a`
+export const NavbarBrand = styled.div`
   display: flex;
   text-align: center;
   font-size: 2.4rem;
@@ -154,15 +154,17 @@ export const CategoryItem = styled.li`
   white-space: nowrap;
 `;
 
-export const CategoryLink = styled.a`
-  transition: all 300ms ease-in-out;
-  &:hover {
-    opacity: 0.95;
+export const CategoryLink = styled.div`
+  a {
+    transition: all 300ms ease-in-out;
+    &:hover {
+      opacity: 0.95;
+    }
+    color: ${({ theme }) => theme.colors.whiteColor};
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: capitalize;
   }
-  color: ${({ theme }) => theme.colors.whiteColor};
-  font-size: 1.8rem;
-  text-decoration: none;
-  text-transform: capitalize;
 `;
 
 export const NavbarCart = styled.div`
@@ -177,14 +179,7 @@ export const NavbarCart = styled.div`
   -webkit-tap-highlight-color: transparent;
 `;
 
-export const CartBtn = styled.a`
-  // text-decoration: none;
-  // &:hover{
-  //     .cart-modal{
-  //         opacity: 1;
-  //         visibility: visible;
-  //     }
-  // }
+export const CartBtn = styled.div`
   display: inline-block;
   position: relative;
   cursor: pointer;

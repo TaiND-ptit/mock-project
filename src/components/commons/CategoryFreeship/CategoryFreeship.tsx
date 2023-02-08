@@ -18,6 +18,7 @@ import {
   CategoryXtraProductPriceText
 } from './CategoryFreeship.styled';
 import ProductsSale from '../ProductsSale/ProductsSale';
+import { Link } from 'react-router-dom';
 
 const CategoryFreeship = () => {
   return (
@@ -29,7 +30,9 @@ const CategoryFreeship = () => {
             <CategoryXtraHeading>
               <CategoryXtraHeadingText>Sản phẩm bán chạy</CategoryXtraHeadingText>
               <CategoryXtraHeadingLink>
+                <Link to=''>
                 Xem thêm
+                </Link>
                 <CategoryXtraHeadingIcon className='fas fa-chevron-right'></CategoryXtraHeadingIcon>
               </CategoryXtraHeadingLink>
             </CategoryXtraHeading>
@@ -37,6 +40,7 @@ const CategoryFreeship = () => {
             <CategoryXtraList>
               <CategoryXtraSale>
                 <CategoryXtraLink>
+                  <Link to=''>
                   <CategoryXtraProduct>
                     <CategoryXtraProductImg
                       src={images.productExtra.productExtra1}
@@ -47,6 +51,7 @@ const CategoryFreeship = () => {
                       375.000
                     </CategoryXtraProductPrice>
                   </CategoryXtraProduct>
+                  </Link>
                 </CategoryXtraLink>
                 <ProductsSale />
               </CategoryXtraSale>

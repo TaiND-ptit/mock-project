@@ -11,7 +11,6 @@ import {
   ButtonLogin,
   InputLogin,
   FormMenu,
-  FormMenuLink,
   FormOr,
   FormOrFirst,
   FormOrContent,
@@ -110,8 +109,8 @@ const Login = () => {
                 <ButtonLogin htmlType='submit'>Đăng Nhập</ButtonLogin>
               </Form.Item>
               <FormMenu>
-                <FormMenuLink href=''>Quên mật khẩu </FormMenuLink>
-                <FormMenuLink href=''>Đăng nhập với SMS</FormMenuLink>
+                <Link to=''>Quên mật khẩu </Link>
+                <Link to=''>Đăng nhập với SMS</Link>
               </FormMenu>
               <FormOr>
                 <FormOrFirst></FormOrFirst>

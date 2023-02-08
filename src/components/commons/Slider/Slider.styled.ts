@@ -41,9 +41,6 @@ export const BannerRightItem = styled.li`
   }
 `;
 
-export const BannerRightLink = styled.a`
-  text-decoration: none;
-`;
 
 export const BannerRightImg = styled.img`
   width: 100%;

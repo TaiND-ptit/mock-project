@@ -75,13 +75,12 @@ export const FormMenu = styled.div`
   justify-content: space-between;
   margin-top: 10px;
   user-select: none;
-`;
-
-export const FormMenuLink = styled.a`
-  font-size: 2rem;
-  line-height: 2.2rem;
-  color: #05a;
-  text-decoration: none;
+  a {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    color: #05a;
+    text-decoration: none;
+  }
 `;
 
 export const FormOr = styled.div`

@@ -47,13 +47,6 @@ const SearchPage = () => {
             <NoSearchProductText>Không tìm thấy sản phẩm</NoSearchProductText>
           </NoSearchProduct>
         ) : (
-          // <>
-          //   {searchProductsQuery.isLoading && (
-          //     <ProductLoading>
-          //       <Spin size='large' />
-          //     </ProductLoading>
-          //   )}
-
           <>
             {searchProducts.map((product: any) => (
               <Product

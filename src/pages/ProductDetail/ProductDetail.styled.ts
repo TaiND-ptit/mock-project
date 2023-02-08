@@ -35,110 +35,6 @@ export const ProductImgContainer = styled.div`
   width: 41.66667%;
 `;
 
-export const ProductImgMain = styled.div`
-  border: 4px solid ${({ theme }) => theme.colors.mainColor};
-`;
-
-export const ProductImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  &:not(&:first-child) {
-    display: none;
-  }
-`;
-
-export const ProductListImgThumb = styled.ul`
-  list-style-type: none;
-  position: relative;
-  list-style: none;
-  padding-left: 0;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  padding-top: 2px;
-  margin-left: -6px;
-  margin-right: -6px;
-  display: flex;
-`;
-
-export const ProductListImgThumbContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  transition: all 0.01s;
-`;
-
-export const ProductColImg = styled.div`
-  padding-left: 5px;
-  padding-right: 5px;
-  flex: 0 0 20%;
-  width: 20%;
-`;
-
-export const ProductItemImg = styled.li`
-  width: 100%;
-`;
-
-export const ProductLinkImg = styled.a`
-  background-color: transparent;
-`;
-
-export const ProductImgThumb = styled.img`
-  width: 100%;
-
-  &:hover {
-    border: 2px solid ${({ theme }) => theme.colors.mainColorSecond};
-    cursor: pointer;
-  }
-`;
-
-export const ProductListImgPrev = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 6px;
-  width: 20px;
-  height: 48px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
-  outline: none;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-width: 15px 9px;
-    border-style: solid;
-    left: 4px;
-    border-color: transparent ${({ theme }) => theme.colors.whiteColor} transparent transparent;
-  }
-`;
-
-export const ProductListImgNext = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 6px;
-  width: 20px;
-  height: 48px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
-  outline: none;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-width: 15px 9px;
-    border-style: solid;
-    right: -14px;
-    border-color: transparent transparent transparent ${({ theme }) => theme.colors.whiteColor};
-  }
-`;
-
 export const ProductDetailDescription = styled.div`
   display: flex;
   flex-direction: column;
@@ -411,11 +307,11 @@ export const ProductDetailDescriptionMainText = styled.span`
   margin-top: -44px;
 `;
 export const WapperLoading = styled.div`
-   width: 100%;
-   height:  100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ProductAmountMain = styled.div`
@@ -463,4 +359,3 @@ export const ProductAmountMainPlus = styled.div`
     margin: 10px;
   }
 `;
-

@@ -35,10 +35,10 @@ const Header = () => {
   const [token, setToken] = useState<string>(String(tokenLocalStorage));
 
   const handleLogOut = () => {
-    http.get('/logout')
-      
-      localStorage.removeItem('userLogin');
-      localStorage.removeItem('login');
+    http.get('/logout');
+
+    localStorage.removeItem('userLogin');
+    localStorage.removeItem('login');
   };
 
   return (
@@ -48,15 +48,22 @@ const Header = () => {
           <div className='navbar-left'>
             <ListTopLink>
               <ListLinkItem>
-                <ItemLink>Kênh người bán</ItemLink>
+                <ItemLink>
+                  <Link to=''>Kênh người bán</Link>
+                </ItemLink>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               <ListLinkItem>
-                <ItemLink>Vào ứng dụng Shopee</ItemLink>
+                <ItemLink>
+                  {' '}
+                  <Link to=''>Vào ứng dụng Shopee</Link>
+                </ItemLink>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               <ListLinkItem>
-                <ItemLink>Tải ứng dụng</ItemLink>
+                <ItemLink>
+                  <Link to=''>Tải ứng dụng</Link>
+                </ItemLink>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               <ListLinkItem className='social-link'>
@@ -76,14 +83,16 @@ const Header = () => {
             <ListTopLink>
               <ListLinkItem>
                 <TopLinkItem>
+                  <Link to=''>
                   <ListLinkItem className='icon-support'>
                     <FooterLinkIcon className='fa-solid fa-circle-question'></FooterLinkIcon>
                   </ListLinkItem>
                   <TopLinkIconText>Support</TopLinkIconText>
+                  </Link>
                 </TopLinkItem>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
-              { userCurrent && token && (
+              {userCurrent && token && (
                 <HeadlessTippy
                   interactive
                   render={(attrs) => (
@@ -105,23 +114,21 @@ const Header = () => {
                   </ListLinkItemUserLogin>
                 </HeadlessTippy>
               )}
-              { !!userCurrent && !!token &&
-                (
-                  <>
-                    <ListLinkItem>
-                      <Link to='/register'>
-                        <TopLinkIconText>Đăng kí</TopLinkIconText>
-                      </Link>
-                    </ListLinkItem>
-                    <ListLinkItem className='vert-line'></ListLinkItem>
-                    <ListLinkItem>
-                      <Link to='/login'>
-                        <TopLinkIconText>Đăng nhập</TopLinkIconText>
-                      </Link>
-                    </ListLinkItem>
-                  </>
-                )
-              } 
+              {!!userCurrent && !!token && (
+                <>
+                  <ListLinkItem>
+                    <Link to='/register'>
+                      <TopLinkIconText>Đăng kí</TopLinkIconText>
+                    </Link>
+                  </ListLinkItem>
+                  <ListLinkItem className='vert-line'></ListLinkItem>
+                  <ListLinkItem>
+                    <Link to='/login'>
+                      <TopLinkIconText>Đăng nhập</TopLinkIconText>
+                    </Link>
+                  </ListLinkItem>
+                </>
+              )}
             </ListTopLink>
           </NavbarRight>
         </NavbarTop>

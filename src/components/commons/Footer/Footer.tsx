@@ -16,6 +16,7 @@ import {
   StoreImage
 } from './Footer.styled';
 import images from 'assets/images';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <FooterContainer>
@@ -26,13 +27,20 @@ const Footer = () => {
             <FooterHeadingContent>Chăm sóc khách hàng</FooterHeadingContent>
             <FooterList>
               <FooterItem>
-                <FooterLink>Trung tâm trợ giúp</FooterLink>
+                <FooterLink>
+                  <Link to=''>Trung tâm trợ giúp</Link>
+                </FooterLink>
               </FooterItem>
               <FooterItem>
-                <FooterLink>Liên hệ với chúng tôi qua email</FooterLink>
+                <FooterLink>
+                  <Link to=''>Liên hệ với chúng tôi qua email</Link>
+                </FooterLink>
               </FooterItem>
               <FooterItem>
-                <FooterLink>Hướng dẫn mua hàng</FooterLink>
+                <FooterLink>
+                  {' '}
+                  <Link to=''>Hướng dẫn mua hàng</Link>
+                </FooterLink>
               </FooterItem>
             </FooterList>
           </FooterHeading>
@@ -42,13 +50,19 @@ const Footer = () => {
             <FooterHeadingContent>Về Shopee</FooterHeadingContent>
             <FooterList>
               <FooterItem>
-                <FooterLink>Giới thiệu về Shopee</FooterLink>
+                <FooterLink>
+                  <Link to=''>Giới thiệu về Shopee</Link>
+                </FooterLink>
               </FooterItem>
               <FooterItem>
-                <FooterLink>Bạn muốn bán hàng cùng Shopee ?</FooterLink>
+                <FooterLink>
+                  <Link to=''>Bạn muốn bán hàng cùng Shopee ?</Link>
+                </FooterLink>
               </FooterItem>
               <FooterItem>
-                <FooterLink>Điều khoản dịch vụ</FooterLink>
+                <FooterLink>
+                  <Link to=''>Điều khoản dịch vụ</Link>
+                </FooterLink>
               </FooterItem>
             </FooterList>
           </FooterHeading>
@@ -59,20 +73,26 @@ const Footer = () => {
             <FooterList>
               <FooterItem>
                 <FooterLink>
-                  <FooterLinkIcon className='fab fa-facebook'></FooterLinkIcon>
-                  <FooterLinkDes>Facebook</FooterLinkDes>
+                  <Link to=''>
+                    <FooterLinkIcon className='fab fa-facebook'></FooterLinkIcon>
+                    <FooterLinkDes>Facebook</FooterLinkDes>
+                  </Link>
                 </FooterLink>
               </FooterItem>
               <FooterItem>
                 <FooterLink>
-                  <FooterLinkIcon className='fab fa-youtube'></FooterLinkIcon>
-                  <FooterLinkDes>Youtube</FooterLinkDes>
+                  <Link to=''>
+                    <FooterLinkIcon className='fab fa-youtube'></FooterLinkIcon>
+                    <FooterLinkDes>Youtube</FooterLinkDes>
+                  </Link>
                 </FooterLink>
               </FooterItem>
               <FooterItem>
                 <FooterLink>
-                  <FooterLinkIcon className='fab fa-github'></FooterLinkIcon>
-                  <FooterLinkDes>Github</FooterLinkDes>
+                  <Link to=''>
+                    <FooterLinkIcon className='fab fa-github'></FooterLinkIcon>
+                    <FooterLinkDes>Github</FooterLinkDes>
+                  </Link>
                 </FooterLink>
               </FooterItem>
             </FooterList>

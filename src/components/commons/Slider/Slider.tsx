@@ -7,10 +7,10 @@ import {
   BannerRight,
   BannerRightList,
   BannerRightItem,
-  BannerRightLink,
   BannerRightImg
 } from './Slider.styled';
 import { Carousel } from 'antd';
+import { Link } from 'react-router-dom';
 const Slider = () => {
   return (
     <SliderContainer>
@@ -37,14 +37,14 @@ const Slider = () => {
         <BannerRight>
           <BannerRightList>
             <BannerRightItem>
-              <BannerRightLink>
+              <Link to=''>
                 <BannerRightImg src={images.bannerSlider.bannerRight.BannerRight1} alt='Banner slider right 1' />
-              </BannerRightLink>
+              </Link>
             </BannerRightItem>
             <BannerRightItem className='banner-right-second'>
-              <BannerRightLink>
+              <Link to=''>
                 <BannerRightImg src={images.bannerSlider.bannerRight.BannerRight2} alt='Banner slider right 1' />
-              </BannerRightLink>
+              </Link>
             </BannerRightItem>
           </BannerRightList>
         </BannerRight>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { CategoryBoxItem, CategoryBoxLink, CategoryBoxImg, CategoryBoxText } from './CategoryItem.styled';
 
 interface Props {
@@ -10,8 +11,10 @@ const CategoryItem: React.FC<Props> = (props) => {
     <div>
       <CategoryBoxItem>
         <CategoryBoxLink>
-          <CategoryBoxImg src={srcImg} alt='image-category' />
-          <CategoryBoxText>{categoryText}</CategoryBoxText>
+          <Link to=''>
+            <CategoryBoxImg src={srcImg} alt='image-category' />
+            <CategoryBoxText>{categoryText}</CategoryBoxText>
+          </Link>
         </CategoryBoxLink>
       </CategoryBoxItem>
     </div>
