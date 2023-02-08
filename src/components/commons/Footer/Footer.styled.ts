@@ -39,15 +39,17 @@ export const FooterItem = styled.div`
   margin-top: 27px;
 `;
 
-export const FooterLink = styled.a`
-  color: #737373;
-  display: block;
-  font-size: 2rem;
-  line-height: 2.4rem;
-  text-decoration: none;
-  padding: 7px 0;
-  display: flex;
-  align-items: center;
+export const FooterLink = styled.div`
+  a {
+    color: #737373;
+    display: block;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    text-decoration: none;
+    padding: 7px 0;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const FooterLinkIcon = styled.i``;

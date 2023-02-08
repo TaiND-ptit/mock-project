@@ -9,13 +9,15 @@ export const CategoryBoxItem = styled.li`
   }
 `;
 
-export const CategoryBoxLink = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-decoration: none;
-  text-align: center;
+export const CategoryBoxLink = styled.div`
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+  }
 `;
 
 export const CategoryBoxImg = styled.img`

@@ -7,7 +7,6 @@ import {
   CategoryTitle,
   CategoryList,
   CategoryItem,
-  CatListLink
 } from './Sidebar.styled';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -25,22 +24,22 @@ const Sidebar = () => {
         <CategoryTitle>All Categories</CategoryTitle>
         <CategoryList>
           <CategoryItem>
-            <CatListLink>Smartphones</CatListLink>
+            <Link to=''>Smartphones</Link>
           </CategoryItem>
           <CategoryItem>
-            <CatListLink>Smartphones</CatListLink>
+            <Link to=''>Smartphones</Link>
           </CategoryItem>
           <CategoryItem>
-            <CatListLink>Smartphones</CatListLink>
+            <Link to=''>Smartphones</Link>
           </CategoryItem>
           <CategoryItem>
-            <CatListLink>Smartphones</CatListLink>
+            <Link to=''>Smartphones</Link>
           </CategoryItem>
           <CategoryItem>
-            <CatListLink>Smartphones</CatListLink>
+            <Link to=''>Smartphones</Link>
           </CategoryItem>
           <CategoryItem>
-            <CatListLink>Smartphones</CatListLink>
+            <Link to=''>Smartphones</Link>
           </CategoryItem>
         </CategoryList>
       </SidebarContainer>

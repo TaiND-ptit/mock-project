@@ -20,8 +20,8 @@ export const NavbarMenuLeft = styled.div`
   align-items: center;
 `;
 
-export const NavbarMenuLeftLogo = styled.a`
-    text-decoration: none;
+export const NavbarMenuLeftLogo = styled.div`
+    // text-decoration: none;
         .logo__shopee-cart{
             color: ${({ theme }) => theme.colors.mainColorSecond};
             fill: currentColor;
@@ -48,9 +48,11 @@ export const NavbarMenuRight = styled.div`
   align-items: center;
 `;
 
-export const NavbarMenuRightHelp = styled.a`
-  font-size: 2.2rem;
-  line-height: 2.4rem;
-  color: ${({ theme }) => theme.colors.mainColorSecond};
-  text-decoration: none;
+export const NavbarMenuRightHelp = styled.div`
+  a {
+    font-size: 2.2rem;
+    line-height: 2.4rem;
+    color: ${({ theme }) => theme.colors.mainColorSecond};
+    text-decoration: none;
+  }
 `;

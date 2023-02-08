@@ -44,11 +44,13 @@ export const CategoryXtraHeadingText = styled.h4`
   text-transform: uppercase;
 `;
 
-export const CategoryXtraHeadingLink = styled.a`
-  font-size: 2.4rem;
-  color: ${({ theme }) => theme.colors.mainColorSecond};
-  text-transform: capitalize;
-  text-decoration: none;
+export const CategoryXtraHeadingLink = styled.div`
+  a {
+    font-size: 2.4rem;
+    color: ${({ theme }) => theme.colors.mainColorSecond};
+    text-transform: capitalize;
+    text-decoration: none;
+  }
 `;
 
 export const CategoryXtraHeadingIcon = styled.i`
@@ -69,8 +71,10 @@ export const CategoryXtraSale = styled.div`
   width: 16.66667%;
 `;
 
-export const CategoryXtraLink = styled.a`
-  text-decoration: none;
+export const CategoryXtraLink = styled.div`
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const CategoryXtraProduct = styled.div`

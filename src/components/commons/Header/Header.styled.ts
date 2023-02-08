@@ -55,10 +55,12 @@ export const ListLinkItem = styled.li`
     color: unset;
   }
 `;
-export const ItemLink = styled.a`
-  font-size: 14px;
-  text-decoration: none;
-  color: unset;
+export const ItemLink = styled.div`
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    color: unset;
+  }
 `;
 
 export const ItemLinkDes = styled.span`
@@ -82,9 +84,11 @@ export const SocialItem = styled.li`
 
 export const NavbarRight = styled.div``;
 
-export const TopLinkItem = styled.a`
-  display: flex;
-  align-items: center;
+export const TopLinkItem = styled.div`
+  a {
+    display: flex;
+    align-items: center;
+  }
 `;
 export const TopLinkIconText = styled.span``;
 

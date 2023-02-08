@@ -80,11 +80,10 @@ const Navbar = () => {
               />
               {/* <Link to={`search/${searchText}`}> */}
 
-             
               <SearchBtn>
-              <Link to={`search/${searchText}`} >
-                <SearchIcon className='fa-solid fa-magnifying-glass'></SearchIcon>
-              </Link>
+                <Link to={`search/${searchText}`}>
+                  <SearchIcon className='fa-solid fa-magnifying-glass'></SearchIcon>
+                </Link>
               </SearchBtn>
             </SearchContainer>
           </NavbarSearch>
@@ -92,7 +91,9 @@ const Navbar = () => {
           <CategoryList>
             {categorysQuery?.data?.data.data.map((category: any, index: any) => (
               <CategoryItem key={index}>
-                <CategoryLink>{category.name}</CategoryLink>
+                <CategoryLink>
+                  <Link to=''>{category.name}</Link>
+                </CategoryLink>
               </CategoryItem>
             ))}
           </CategoryList>
