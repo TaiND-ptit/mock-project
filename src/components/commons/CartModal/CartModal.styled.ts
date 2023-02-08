@@ -1,19 +1,11 @@
 import styled from 'styled-components';
 
 export const CartContainer = styled.div`
-  position: absolute;
-  right: -10px;
-  top: calc(100% + 10px);
-  // background-color: ${({ theme }) => theme.colors.whiteColor};
-  background-color: #000;
+  background-color: ${({ theme }) => theme.colors.whiteColor};
   width: 360px;
   box-shadow: rgba(100, 100, 111, 0.25) 0px 7px 29px 0px;
-  padding: 1.8rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  // visibility: hidden;
-  opacity: 0.5;
   transition: all 300ms ease-in-out;
-  z-index: 99;
   height: 460px;
   overflow-y: scroll;
 
@@ -76,8 +68,7 @@ export const CartModalItemImg = styled.img`
 export const CartModalItemTitle = styled.div`
   font-size: 13px;
   text-transform: capitalize;
-  color: ${({ theme }) => theme.colors.whiteColor};
-  // color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.85);
   line-height: 1.4;
 `;
 
@@ -89,15 +80,22 @@ export const CartModalItemPrice = styled.div`
 export const ViewCartBtn = styled.button`
   background-color: ${({ theme }) => theme.colors.mainColor};
   text-transform: capitalize;
+  border: none;
   font-size: 15px;
   display: inline-block;
-  width: 200px;
-  padding: 5px 1rem;
-  margin-top: 1.8rem;
-  margin-left: auto;
+  // width: 200px;
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 5px;
+  right: 32%;
   border-radius: 2px;
   text-align: center;
   margin: auto;
+
+  a{
+    color: ${({ theme }) => theme.colors.whiteColor}
+  }
+  
 `;
 
 export const CartModalEmpty = styled.div`

@@ -51,8 +51,9 @@ const Login = () => {
     mutationFn: (body: FormStateLogin) => {
       return loginUser(body).then(function (response) {
         const token = response.data.authorisation.token;
+        const user = response.data.user.name;
         localStorage.setItem('login', token);
-        // console.log('token', response);
+        localStorage.setItem('userLogin', user);
       });
     }
   });
@@ -79,14 +80,10 @@ const Login = () => {
         </FormLoginLeft>
         <FormLoginRight>
           <FormLoginRegister>
-            <Form
-              initialValues={{ remember: true }}
-              onFinish={onFinish}
-              autoComplete='off'
-            >
+            <Form initialValues={{ remember: true }} onFinish={onFinish} autoComplete='off'>
               <FormHeading>Đăng Nhập</FormHeading>
               <FormSpacer></FormSpacer>
-              {loginUserMutation.isError && (<MesError>Email hoặc mật khẩu sai</MesError>)}
+              {loginUserMutation.isError && <MesError>Email hoặc mật khẩu sai</MesError>}
 
               <Form.Item
                 name='email'

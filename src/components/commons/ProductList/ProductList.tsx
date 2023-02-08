@@ -1,3 +1,4 @@
+import { useQueryString } from 'utils/utils';
 import Product from '../Product/Product';
 import {
   Wrapper,
@@ -7,10 +8,31 @@ import {
   SortLabel,
   SortLabelBorder,
   SortRightImg,
-  ProductListContainer
+  ProductListContainer,
+  ProductLoading
 } from './ProductList.styled';
 
-const ProductList = () => {
+import { Spin } from 'antd';
+interface Props {
+  productLoading: boolean;
+  productData: any;
+}
+
+const ProductList: React.FC<Props> = (props) => {
+  const { productLoading, productData} = props;
+
+  // const queryString: { page?: string } = useQueryString();
+  // const page = Number(queryString.page) || 1;
+
+  // const productsQuery = useQuery({
+  //   queryKey: ['products', page],
+  //   queryFn: () => getProducts(page),
+  //   keepPreviousData: true
+  // });
+
+  // const totalProductsCount = Number(productsQuery?.data?.data?.data?.total || 0);
+  // const totalPage = Math.ceil(totalProductsCount / LIMIT);
+
   return (
     <Wrapper>
       <ProductListSort>
@@ -23,11 +45,24 @@ const ProductList = () => {
         </SortRight>
       </ProductListSort>
       <ProductListContainer>
-        {Array(50)
-          .fill(0)
-          .map((v, i) => (
-            <Product />
-          ))}
+        {productLoading && (
+          <ProductLoading>
+            <Spin size='large' />
+          </ProductLoading>
+        )}
+        {!productLoading && (
+        <>
+        {productData.map((product:any) => (
+          <Product 
+          key={product.id}
+          productId={product.id}
+          productImg={product?.images[0].image}
+          productPrice={product.price}
+          productName={product.name}
+          productDescription={product.description}
+          />
+        ))}
+        </>)}
       </ProductListContainer>
     </Wrapper>
   );

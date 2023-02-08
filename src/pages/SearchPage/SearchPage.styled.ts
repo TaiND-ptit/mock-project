@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   padding-right: 6px;
 `;
 
-export const ProductListSort = styled.div`
+export const ProductSearchHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,17 +16,13 @@ export const ProductListSort = styled.div`
   border-radius: 2px;
 `;
 
-export const SortLeft = styled.div`
+export const ProductSearchTitle = styled.div`
   position: relative;
   display: flex;
   align-items: center;
 `;
 
-export const SortRight = styled.div`
-  transform: translateX(17px);
-`;
-
-export const SortLabel = styled.span`
+export const ProductSearchLabel = styled.span`
   font-size: 2.5rem;
   line-height: 3rem;
   color: #f12f09;
@@ -34,7 +30,15 @@ export const SortLabel = styled.span`
   margin-right: 204px;
 `;
 
-export const SortLabelBorder = styled.div`
+export const ProductSearchList = styled.div`
+  margin-left: -6px;
+  margin-right: -6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const SearchLabelBorder = styled.div`
   position: absolute;
   left: -21px;
   bottom: -11px;
@@ -43,15 +47,14 @@ export const SortLabelBorder = styled.div`
   background-color: #f12f09;
 `;
 
-export const SortRightImg = styled.img``;
-
-export const ProductListContainer = styled.div`
-  margin-left: -6px;
-  margin-right: -6px;
+export const NoSearchProduct = styled.div`
+  width: 100%;
+  height: 50vh;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 `;
-export const ProductLoading = styled.div`
-  margin: 20px;
+
+export const NoSearchProductText = styled.div`
+  font-size: 20px;
 `;

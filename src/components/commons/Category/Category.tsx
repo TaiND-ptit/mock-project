@@ -3,7 +3,6 @@ import images from 'assets/images';
 import CategoryItem from '../CategoryItem/CategoryItem';
 
 const Category = () => {
-  console.log(typeof images.category.category1);
   return (
     <Wrapper>
       <CategoryContainer>

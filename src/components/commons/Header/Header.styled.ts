@@ -89,3 +89,53 @@ export const TopLinkItem = styled.a`
 export const TopLinkIconText = styled.span``;
 
 export const NavbarBottom = styled.div``;
+export const ListLinkItemUserLogin = styled.li`
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  animation: fadeIn ease-in 0.2s;
+`;
+
+export const UserLogin = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+`;
+export const ListItemUserImg = styled.img`
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+`;
+export const ListItemUserName = styled.span`
+  color: ${({ theme }) => theme.colors.whiteColor};
+  font-size: 2rem;
+  margin-left: 4px;
+`;
+
+export const UserUser = styled.div``;
+
+export const InfoUser = styled.ul`
+  width: 166px;
+  // position: absolute;
+  // list-style: none;
+  // padding-left: 0;
+  // // top: 28px;
+  // right: 0;
+  background-color: ${({ theme }) => theme.colors.whiteColor};
+  border-radius: 2px;
+  box-shadow: 0 1px 6px #ccc;
+  overflow: hidden;
+`;
+export const InfoListUser = styled.li`
+  padding: 12px 16px;
+  color: ${({ theme }) => theme.colors.textColor};
+  cursor: pointer;
+  font-size: 2rem;
+  a {
+    display: block;
+    color: ${({ theme }) => theme.colors.textColor};
+    text-decoration: none;
+  }
+`;
