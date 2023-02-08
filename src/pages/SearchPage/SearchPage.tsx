@@ -22,23 +22,16 @@ import http from 'utils/http';
 const SearchPage = () => {
   const { searchText } = useParams();
   const [searchProducts, setSearchProducts] = useState([]);
-  // console.log(searchText);
 
   useEffect(() => {
     fetchApi();
   }, [searchText]);
 
   const fetchApi = async () => {
+    setSearchProducts([]);
     const response = await http.get(`search?search=${searchText}`);
-    // console.log(response);
-    // console.log('res', response.data.data.username);
-    setSearchProducts(response.data.data.data.data);
+    setSearchProducts(response.data.data.data);
   };
-  console.log(searchProducts);
-
-  //  searchProducts = searchProductsQuery.data?.data.data.data;
-  // console.log(searchProductsQuery.data?.data.data.data);
-  // console.log(searchProducts);
 
   return (
     <Wrapper>

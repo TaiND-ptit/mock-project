@@ -65,27 +65,9 @@ import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from 'store/cartSlice';
-import { Carousel } from 'react-carousel-minimal';
 import { RootState } from 'store/store';
+import CarouselProduct from 'components/commons/CarouselProduct/CarouselProduct';
 
-const data = [
-  {
-    image:
-      'https://opencart.mahardhi.com/MT01/adi/image/cache/catalog/product/1-1025x1400.jpg',
-  },
-  {
-    image:
-      'https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg',
-  },
-  {
-    image:
-      'https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg',
-  },
-  {
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg',
-  },
-];
 const ProductDetail: React.FC = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -97,6 +79,7 @@ const ProductDetail: React.FC = () => {
     keepPreviousData: true
   });
   const product = productDetailQuery.data?.data.data;
+  const dataImages = productDetailQuery.data?.data.data.images;
 
   const addToCartHandler = (product: any) => {
     let totalPrice = quantity * product.price;
@@ -132,104 +115,7 @@ const ProductDetail: React.FC = () => {
             <ProductDet>
               <ProductDetailInfo>
                 <ProductImgContainer>
-                  {/* <ProductImgMain>
-                    <ProductImg
-                      src={`http://dung.fresher.ameladev.click/storage/uploads/${productDetailQuery.data?.data.data.images[0].image}`}
-                      alt='product'
-                      data-index={1}
-                    ></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail2} alt='product' data-index={2}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail3} alt='product' data-index={3}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail4} alt='product' data-index={4}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail5} alt='product' data-index={5}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail6} alt='product' data-index={6}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail7} alt='product' data-index={7}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail8} alt='product' data-index={8}></ProductImg>
-                    <ProductImg src={images.productDetail.productDetail9} alt='product' data-index={9}></ProductImg>
-                  </ProductImgMain>
-                  <ProductListImgThumb>
-                    <ProductListImgThumbContainer>
-                      <ProductColImg>
-                        <ProductItemImg data-index={1}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail1} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={2}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail2} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={3}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail3} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={4}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail4} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={5}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail5} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={6}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail6} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={7}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail7} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={8}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail8} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                      <ProductColImg>
-                        <ProductItemImg data-index={9}>
-                          <ProductLinkImg>
-                            <ProductImgThumb src={images.productDetail.productDetail9} alt='product'></ProductImgThumb>
-                          </ProductLinkImg>
-                        </ProductItemImg>
-                      </ProductColImg>
-                    </ProductListImgThumbContainer>
-                    <ProductListImgPrev></ProductListImgPrev>
-                    <ProductListImgNext></ProductListImgNext>
-                  </ProductListImgThumb> */}
-     <Carousel
-        data={data}
-        width="100%"
-        height="auto"
-        radius="10px"
-        slideNumber={true}
-        captionPosition="bottom"
-        pauseIconColor="white"
-        pauseIconSize="40px"
-        slideBackgroundColor="darkgrey"
-        slideImageFit="cover"
-        thumbnails={true}
-        thumbnailWidth="100px"
-      />
+                  <CarouselProduct dataImages={dataImages} />
                 </ProductImgContainer>
 
                 <ProductDetailDescription>
