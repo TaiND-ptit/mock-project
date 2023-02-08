@@ -8,9 +8,14 @@ import {
   NavbarMenuleftCartDes,
   NavbarMenuRight,
   NavbarMenuRightHelp
-} from './HeaderLogin.styled';
+} from './HeaderLoginRegister.styled';
 
-const HeaderLogin = () => {
+interface Props {
+  headingText: string;
+}
+
+const HeaderLoginRegister: React.FC<Props> = (props) => {
+  const { headingText } = props;
   return (
     <Header>
       <NavbarMenu>
@@ -24,7 +29,7 @@ const HeaderLogin = () => {
               </svg>
             </NavbarMenuLeftLogo>
             <NavbarMenuLeftCart>
-              <NavbarMenuleftCartDes>Đăng nhập</NavbarMenuleftCartDes>
+              <NavbarMenuleftCartDes>{headingText}</NavbarMenuleftCartDes>
             </NavbarMenuLeftCart>
           </NavbarMenuLeft>
 
@@ -37,4 +42,4 @@ const HeaderLogin = () => {
   );
 };
 
-export default HeaderLogin;
+export default HeaderLoginRegister;

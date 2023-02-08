@@ -1,4 +1,4 @@
-import { Button, Input } from 'antd';
+import { Button, Input, Col } from 'antd';
 import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
@@ -183,10 +183,15 @@ export const FormOptionsHeading = styled.p`
 `;
 
 export const FormRegister = styled.div`
- a{
-  font-size: 2.3rem;
-  line-height: 2.5rem;
-  color: ${({ theme }) => theme.colors.mainColorSecond};
-  padding-left: 6px;
- }
+  a {
+    font-size: 2.3rem;
+    line-height: 2.5rem;
+    color: ${({ theme }) => theme.colors.mainColorSecond};
+    padding-left: 6px;
+  }
+`;
+
+export const MesError = styled.div`
+  color: red;
+  font-size: 14px;
 `;

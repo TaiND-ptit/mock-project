@@ -19,5 +19,5 @@ const sidebarSlice = createSlice({
 });
 
 export const {setSidebarOn, setSidebarOff} = sidebarSlice.actions;
-export const getSidebarStatus = (state) => state.sidebar.isSidebarOn;
+export const getSidebarStatus = (state: any) => state.sidebar.isSidebarOn;
 export default sidebarSlice.reducer;

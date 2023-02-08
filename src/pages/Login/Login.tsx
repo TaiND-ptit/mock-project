@@ -1,5 +1,5 @@
 import Footer from 'components/commons/Footer/Footer';
-import HeaderLogin from 'components/commons/HeaderLogin/HeaderLogin';
+import HeaderLoginRegister from 'components/commons/HeaderLoginRegister/HeaderLoginRegister';
 import {
   Container,
   FormLoginLeft,
@@ -25,25 +25,54 @@ import {
   FormLoginSocialContainer,
   FormOptions,
   FormOptionsHeading,
-  FormRegister
+  FormRegister,
+  MesError
 } from './Login.styled';
 import images from 'assets/images';
 import { Button, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { User, UserLogin } from 'types/user.type';
+import { loginUser } from 'api/login.api';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
 
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
+type FormStateLogin = Omit<User, 'avatar' | 'name'>;
 
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
+// const initialFormState: FormStateLogin = {
+//   email: '',
+//   password: ''
+// };
 
 const Login = () => {
+  const navigate = useNavigate();
+  // const [formState, setFormState] = useState<UserLogin>(initialFormState);
+
+  const loginUserMutation = useMutation({
+    mutationFn: (body: FormStateLogin) => {
+      return loginUser(body).then(function (response) {
+        const token = response.data.authorisation.token;
+        localStorage.setItem('login', token);
+        // console.log('token', response);
+      });
+    }
+  });
+
+  const onFinish = (values: any) => {
+    const loginData: any = {
+      email: values.email,
+      password: values.password
+    };
+
+    loginUserMutation.mutate(loginData, {
+      onSuccess: () => {
+        navigate('/');
+      }
+    });
+  };
+
   return (
     <div>
-      <HeaderLogin />
-
+      <HeaderLoginRegister headingText='Đăng nhập' />
       <Container>
         <FormLoginLeft>
           <FormLoginLeftImg src={images.formLeft.loginImg} alt='background register' />
@@ -51,45 +80,32 @@ const Login = () => {
         <FormLoginRight>
           <FormLoginRegister>
             <Form
-              // name="basic"
-              // labelCol={{ span: 8 }}
-              // wrapperCol={{ span: 16 }}
-              // style={{ maxWidth: 600 }}
               initialValues={{ remember: true }}
               onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
               autoComplete='off'
             >
               <FormHeading>Đăng Nhập</FormHeading>
               <FormSpacer></FormSpacer>
+              {loginUserMutation.isError && (<MesError>Email hoặc mật khẩu sai</MesError>)}
+
               <Form.Item
-                name='username'
+                name='email'
                 rules={[
-                  { required: true, message: 'Please input your username!' },
-                  {
-                    min: 3,
-                    message: "Tên đăng nhập nằm trong khoảng 3 đến 20",
-                  },
-                  {
-                    max: 20,
-                    message: "Tên đăng nhập nằm trong khoảng 3 đến 20",
-                  },
-                ]}>
-                <InputLogin placeholder='Tên đăng nhập' />
+                  { required: true, message: 'Please input your email!' },
+                  { type: 'email', message: 'The input is not valid email!' }
+                ]}
+              >
+                <InputLogin placeholder='Nhập email của bạn' />
               </Form.Item>
 
-              <Form.Item name='password' rules={[
-                { required: true, message: 'Please input your password!' },
-                {
-                  min: 3,
-                  message: "Mật khẩu nằm trong khoảng 3 đến 8",
-                },
-                {
-                  max: 8,
-                  message: "Mật khẩu nằm trong khoảng 3 đến 8",
-                },
-
-              ]}>
+              <Form.Item
+                name='password'
+                rules={[
+                  { required: true, message: 'Please input your password!' },
+                  { min: 3, message: 'Mật khẩu nằm trong khoảng 3 đến 8' },
+                  { max: 8, message: 'Mật khẩu nằm trong khoảng 3 đến 8' }
+                ]}
+              >
                 <InputLogin placeholder='Nhập mật khẩu' />
               </Form.Item>
 

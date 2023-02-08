@@ -1,4 +1,4 @@
-import { NavbarMenuLeftLogo } from 'components/commons/HeaderLogin/HeaderLogin.styled';
+import { NavbarMenuLeftLogo } from 'components/commons/HeaderLoginRegister/HeaderLoginRegister.styled';
 import {
   Wrapper,
   HeaderWrapper,
