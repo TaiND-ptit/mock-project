@@ -27,16 +27,19 @@ import {
 import images from 'assets/images';
 import { useMemo, useState } from 'react';
 import http from 'utils/http';
+import { clearCart } from 'store/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const username: any = localStorage.getItem('userLogin');
   const tokenLocalStorage: any = localStorage.getItem('login');
-  const [userCurrent, setUserCurrent] = useState<string>(String(username));
-  const [token, setToken] = useState<string>(String(tokenLocalStorage));
+  const [userCurrent, setUserCurrent] = useState<string>(JSON.parse(username));
+  const [token, setToken] = useState<string>(JSON.parse(tokenLocalStorage));
 
   const handleLogOut = () => {
     http.get('/logout');
-
+    dispatch(clearCart());
     localStorage.removeItem('userLogin');
     localStorage.removeItem('login');
   };
@@ -92,7 +95,7 @@ const Header = () => {
                 </TopLinkItem>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
-              {userCurrent && token && (
+              {userCurrent && token ? (
                 <div>
                   <HeadlessTippy
                     interactive
@@ -115,8 +118,7 @@ const Header = () => {
                     </ListLinkItemUserLogin>
                   </HeadlessTippy>
                 </div>
-              )}
-              {!!userCurrent && !!token && (
+              ) : (
                 <>
                   <ListLinkItem>
                     <Link to='/register'>

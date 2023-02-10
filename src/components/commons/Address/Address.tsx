@@ -30,15 +30,6 @@ const Address = () => {
   const paymentUserMutation = useMutation({
     mutationFn: (body: paymentType) => {
       return paymentUser(body);
-      // .then(function (response) {
-      // const token = response.data;
-      // console.log(token);
-
-      // .authorisation.token;
-      // const user = response.data.user.name;
-      // localStorage.setItem('login', token);
-      // localStorage.setItem('userLogin', user);
-      // });
     }
   });
   const onFinish = (values: any) => {

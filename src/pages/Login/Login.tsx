@@ -51,8 +51,8 @@ const Login = () => {
       return loginUser(body).then(function (response) {
         const token = response.data.authorisation.token;
         const user = response.data.user.name;
-        localStorage.setItem('login', token);
-        localStorage.setItem('userLogin', user);
+        localStorage.setItem('login', JSON.stringify(token));
+        localStorage.setItem('userLogin', JSON.stringify(user));
       });
     }
   });
