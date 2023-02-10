@@ -34,8 +34,8 @@ const Header = () => {
   const dispatch = useDispatch();
   const username: any = localStorage.getItem('userLogin');
   const tokenLocalStorage: any = localStorage.getItem('login');
-  const [userCurrent, setUserCurrent] = useState<string>(JSON.parse(username));
-  const [token, setToken] = useState<string>(JSON.parse(tokenLocalStorage));
+  const [userCurrent, setUserCurrent] = useState(username);
+  const [token, setToken] = useState(tokenLocalStorage);
 
   const handleLogOut = () => {
     http.get('/logout');
