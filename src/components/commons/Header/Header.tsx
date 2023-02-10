@@ -27,16 +27,19 @@ import {
 import images from 'assets/images';
 import { useMemo, useState } from 'react';
 import http from 'utils/http';
+import { clearCart } from 'store/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const username: any = localStorage.getItem('userLogin');
   const tokenLocalStorage: any = localStorage.getItem('login');
-  const [userCurrent, setUserCurrent] = useState<string>(String(username));
-  const [token, setToken] = useState<string>(String(tokenLocalStorage));
+  const [userCurrent, setUserCurrent] = useState<string>(JSON.parse(username));
+  const [token, setToken] = useState<string>(JSON.parse(tokenLocalStorage));
 
   const handleLogOut = () => {
     http.get('/logout');
-
+    dispatch(clearCart());
     localStorage.removeItem('userLogin');
     localStorage.removeItem('login');
   };
@@ -84,37 +87,38 @@ const Header = () => {
               <ListLinkItem>
                 <TopLinkItem>
                   <Link to=''>
-                  <ListLinkItem className='icon-support'>
-                    <FooterLinkIcon className='fa-solid fa-circle-question'></FooterLinkIcon>
-                  </ListLinkItem>
-                  <TopLinkIconText>Support</TopLinkIconText>
+                    <ListLinkItem className='icon-support'>
+                      <FooterLinkIcon className='fa-solid fa-circle-question'></FooterLinkIcon>
+                    </ListLinkItem>
+                    <TopLinkIconText>Support</TopLinkIconText>
                   </Link>
                 </TopLinkItem>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
-              {userCurrent && token && (
-                <HeadlessTippy
-                  interactive
-                  render={(attrs) => (
-                    <UserUser {...attrs}>
-                      <InfoUser>
-                        <InfoListUser>
-                          <Link to='/account'>Tài khoản của tôi</Link>
-                        </InfoListUser>
-                        <InfoListUser onClick={handleLogOut}>Đăng xuất</InfoListUser>
-                      </InfoUser>
-                    </UserUser>
-                  )}
-                >
-                  <ListLinkItemUserLogin>
-                    <UserLogin>
-                      <ListItemUserImg src={images.userImg.userImg} alt='user' />
-                      <ListItemUserName>{userCurrent}</ListItemUserName>
-                    </UserLogin>
-                  </ListLinkItemUserLogin>
-                </HeadlessTippy>
-              )}
-              {!!userCurrent && !!token && (
+              {userCurrent && token ? (
+                <div>
+                  <HeadlessTippy
+                    interactive
+                    render={(attrs) => (
+                      <UserUser {...attrs}>
+                        <InfoUser>
+                          <InfoListUser>
+                            <Link to='/account'>Tài khoản của tôi</Link>
+                          </InfoListUser>
+                          <InfoListUser onClick={handleLogOut}>Đăng xuất</InfoListUser>
+                        </InfoUser>
+                      </UserUser>
+                    )}
+                  >
+                    <ListLinkItemUserLogin>
+                      <UserLogin>
+                        <ListItemUserImg src={images.userImg.userImg} alt='user' />
+                        <ListItemUserName>{userCurrent}</ListItemUserName>
+                      </UserLogin>
+                    </ListLinkItemUserLogin>
+                  </HeadlessTippy>
+                </div>
+              ) : (
                 <>
                   <ListLinkItem>
                     <Link to='/register'>

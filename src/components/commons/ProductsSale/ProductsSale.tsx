@@ -1,13 +1,13 @@
 import React from 'react';
 import { ProductsSaleContainer, ProductsSaleValue, ProductsSaleContent } from './ProductsSale.styled';
 interface Props {
-  rightSize?: string;
+  productDiscount?: number;
 }
 const ProductsSale: React.FC<Props> = (props) => {
-  const { rightSize } = props;
+  const { productDiscount } = props;
   return (
     <ProductsSaleContainer className='rightSize'>
-      <ProductsSaleValue>50%</ProductsSaleValue>
+      <ProductsSaleValue>{productDiscount}%</ProductsSaleValue>
       <ProductsSaleContent>GIẢM</ProductsSaleContent>
     </ProductsSaleContainer>
   );

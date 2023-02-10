@@ -12,7 +12,6 @@ import {
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSearchProducts } from 'api/search.api';
-import { Spin } from 'antd';
 import Product from 'components/commons/Product/Product';
 import { ProductLoading } from 'components/commons/ProductList/ProductList.styled';
 import { clearConfigCache } from 'prettier';
@@ -51,6 +50,7 @@ const SearchPage = () => {
             {searchProducts.map((product: any) => (
               <Product
                 key={product.id}
+                productDiscount={product.discount}
                 productId={product.id}
                 productImg={product?.images[0].image}
                 productPrice={product.price}

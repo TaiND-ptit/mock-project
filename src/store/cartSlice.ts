@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
@@ -18,7 +17,7 @@ const storeInLocalStorage = (data: any) => {
 const initialState = {
   carts: fetchFromLocalStorage(),
   itemsCount: 0,
-  totalAmount: 0,
+  totalAmount: 0
 };
 
 const cartSlice = createSlice({
@@ -80,13 +79,13 @@ const cartSlice = createSlice({
           if (action.payload.type === 'INC') {
             tempQty++;
             if (tempQty === item.quantity) tempQty = item.quantity;
-            tempTotalPrice = tempQty * item.price;
+            tempTotalPrice = tempQty * item.discountedPrice;
           }
 
           if (action.payload.type === 'DEC') {
             tempQty--;
             if (tempQty < 1) tempQty = 1;
-            tempTotalPrice = tempQty * item.price;
+            tempTotalPrice = tempQty * item.discountedPrice;
           }
 
           return { ...item, quantity: tempQty, totalPrice: tempTotalPrice };
@@ -97,17 +96,11 @@ const cartSlice = createSlice({
 
       state.carts = tempCart;
       storeInLocalStorage(state.carts);
-    },
+    }
   }
 });
 
-export const {
-  addToCart,
-  getCartTotal,
-  toggleCartQty,
-  clearCart,
-  removeFromCart
-} = cartSlice.actions;
+export const { addToCart, getCartTotal, toggleCartQty, clearCart, removeFromCart } = cartSlice.actions;
 export const getAllCarts = (state: RootState) => state.cart.carts;
 export const getCartItemsCount = (state: RootState) => state.cart.itemsCount;
 

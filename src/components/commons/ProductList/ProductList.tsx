@@ -56,6 +56,7 @@ const ProductList: React.FC<Props> = (props) => {
           <Product 
           key={product.id}
           productId={product.id}
+          productDiscount={product.discount}
           productImg={product?.images[0].image}
           productPrice={product.price}
           productName={product.name}

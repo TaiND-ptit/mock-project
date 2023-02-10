@@ -1,6 +1,8 @@
-import { Wrapper } from './Order.styled';
+import { Wrapper, OrderContainer } from'./Order.styled';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
+import MenuAccount from 'components/commons/MenuAccount/MenuAccount';
+import { AccountRight, AccountWrapper } from 'pages/MyAccount/MyAccount.styled';
 
 const onChange = (key: string) => {
   // console.log(key);
@@ -41,7 +43,14 @@ const Order = () => {
   ];
   return (
     <Wrapper>
-      <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
+      <AccountWrapper>
+        <MenuAccount/>
+        <AccountRight>
+          <OrderContainer>
+          <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
+          </OrderContainer>
+        </AccountRight>
+      </AccountWrapper>
     </Wrapper>
   );
 };

@@ -29,6 +29,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getCategorys } from 'api/category.api';
 import { getAllCarts, getCartItemsCount, getCartTotal } from 'store/cartSlice';
 import React, { useEffect, useState } from 'react';
+// import { getCategory } from 'store/categorySlice';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const Navbar = () => {
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setSearchText(event.target.value);
   };
-
+  // dispatch(getCategory(categorysQuery?.data?.data.data));
   useEffect(() => {
     dispatch(getCartTotal());
   }, [carts]);
@@ -89,33 +90,34 @@ const Navbar = () => {
           </NavbarSearch>
 
           <CategoryList>
-            {categorysQuery?.data?.data.data.map((category: any, index: any) => (
-              <CategoryItem key={index}>
+            {categorysQuery?.data?.data.data.map((category: any) => (
+              <CategoryItem key={category.id}>
                 <CategoryLink>
-                  <Link to=''>{category.name}</Link>
+                  <Link to={`/category/${category.id}`}>{category.name}</Link>
                 </CategoryLink>
               </CategoryItem>
             ))}
           </CategoryList>
         </NavbarCollapse>
         <NavbarCart>
-          <HeadlessTippy interactive render={(attrs) => <CartModal carts={carts} />}>
-            <CartBtn>
-              <Link to='/cart'>
-                <CartIcon>
-                  <svg
-                    className='cart-icon'
-                    version='1.1'
-                    id='Capa_1'
-                    xmlns='http://www.w3.org/2000/svg'
-                    x='0px'
-                    y='0px'
-                    viewBox='0 0 512.001 512.001'
-                  >
-                    <g>
+          <div>
+            <HeadlessTippy interactive render={(attrs) => <CartModal carts={carts} />}>
+              <CartBtn>
+                <Link to='/cart'>
+                  <CartIcon>
+                    <svg
+                      className='cart-icon'
+                      version='1.1'
+                      id='Capa_1'
+                      xmlns='http://www.w3.org/2000/svg'
+                      x='0px'
+                      y='0px'
+                      viewBox='0 0 512.001 512.001'
+                    >
                       <g>
-                        <path
-                          d='M404.054,383.278H198.553l-12.701-50.805h268.561l57.588-230.353H128.264l-20.241-80.965H0v30.159h84.475l83.292,333.168
+                        <g>
+                          <path
+                            d='M404.054,383.278H198.553l-12.701-50.805h268.561l57.588-230.353H128.264l-20.241-80.965H0v30.159h84.475l83.292,333.168
                                                 c-24.247,5.207-42.482,26.8-42.482,52.58c0,29.656,24.127,53.783,53.784,53.783c29.657,0,53.784-24.128,53.784-53.783
                                                 c0-8.472-1.975-16.489-5.48-23.625H355.75c-3.505,7.136-5.48,15.153-5.48,23.625c0,29.656,24.128,53.783,53.784,53.783
                                                 s53.784-24.128,53.784-53.783C457.837,407.406,433.709,383.278,404.054,383.278z M135.803,132.279h337.57l-42.509,170.034H178.312
@@ -123,17 +125,16 @@ const Navbar = () => {
                                                 c13.027,0,23.625,10.598,23.625,23.625C202.694,450.088,192.096,460.686,179.069,460.686z M404.054,460.686
                                                 c-13.027,0-23.625-10.598-23.625-23.624c0-13.027,10.598-23.625,23.625-23.625c13.027,0,23.625,10.598,23.625,23.625
                                                 C427.677,450.088,417.08,460.686,404.054,460.686z'
-                        />
+                          />
+                        </g>
                       </g>
-                    </g>
-                  </svg>
-                </CartIcon>
-                {itemsCount > 0 ? <CartItemValue>{itemsCount}</CartItemValue> : <></>}
-              </Link>
-
-              {/* <CartModal carts={carts}/> */}
-            </CartBtn>
-          </HeadlessTippy>
+                    </svg>
+                  </CartIcon>
+                  {itemsCount > 0 ? <CartItemValue>{itemsCount}</CartItemValue> : <></>}
+                </Link>
+              </CartBtn>
+            </HeadlessTippy>
+          </div>
         </NavbarCart>
       </NavbarContainer>
     </Wrapper>
