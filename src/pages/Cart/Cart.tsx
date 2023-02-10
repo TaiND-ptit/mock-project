@@ -52,12 +52,34 @@ import {
 import images from 'assets/images';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, getAllCarts, removeFromCart, toggleCartQty } from 'store/cartSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from 'store/store';
+import { Modal } from 'antd';
+import { useState } from 'react';
 const Cart = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const carts = useSelector(getAllCarts);
-  const { itemsCount, totalAmount} = useSelector((state: RootState) => state.cart);
+  const { itemsCount, totalAmount } = useSelector((state: RootState) => state.cart);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    const tokenLocalStorage: any = localStorage.getItem('login');
+    if (tokenLocalStorage) {
+      navigate('/address');
+      setIsModalOpen(false);
+    } else {
+      navigate('/login');
+    }
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <Wrapper>
       <HeaderWrapper>
@@ -149,10 +171,12 @@ const Cart = () => {
                         </CartProductMainImgContent>
                       </CartProductMainImg>
                       <CartProductMainClassify></CartProductMainClassify>
-                      <CartProductMainPrice>{cart.price}đ</CartProductMainPrice>
+                      <CartProductMainPrice>{cart.discountedPrice}đ</CartProductMainPrice>
                       <CartProductMainInputAmount>
                         <ProductAmountMain>
-                          <ProductAmountMainMinus onClick={() => dispatch(toggleCartQty({id: cart?.id, type: "DEC"}))}>
+                          <ProductAmountMainMinus
+                            onClick={() => dispatch(toggleCartQty({ id: cart?.id, type: 'DEC' }))}
+                          >
                             <svg version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 298.667 298.667'>
                               <g>
                                 <g>
@@ -162,7 +186,7 @@ const Cart = () => {
                             </svg>
                           </ProductAmountMainMinus>
                           <ProductAmountMainInput value={cart?.quantity} readOnly />
-                          <ProductAmountMainPlus onClick={() => dispatch(toggleCartQty({id: cart?.id, type: "INC"}))}>
+                          <ProductAmountMainPlus onClick={() => dispatch(toggleCartQty({ id: cart?.id, type: 'INC' }))}>
                             <svg version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 341.4 341.4'>
                               <g>
                                 <g>
@@ -199,7 +223,10 @@ const Cart = () => {
                       Tổng thanh toán <span>({itemsCount} Sản Phẩm):</span>
                     </CartProductPayTotalRightAll>
                     <CartProductPayTotalRightPrice>{totalAmount}</CartProductPayTotalRightPrice>
-                    <BuyBtn>Mua Hàng</BuyBtn>
+                    <BuyBtn onClick={showModal}>Mua Hàng</BuyBtn>
+                    <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                      <p>Bạn muốn mua hàng?</p>
+                    </Modal>
                   </CartProductPayTotalRight>
                 </CartProductPayTotal>
               </CartProductPay>

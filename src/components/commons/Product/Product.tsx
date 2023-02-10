@@ -22,13 +22,14 @@ import { Link } from 'react-router-dom';
 interface Props {
   productId: number,
   productName: string,
+  productDiscount: number,
   productDescription: string,
   productImg: string,
   productPrice: number
 }
 
 const Product: React.FC<Props> = (props) => {
-  const { productId, productImg, productPrice, productName, productDescription } = props;
+  const { productId, productImg, productPrice, productName, productDiscount,productDescription } = props;
   let rightSize: string = 'rightSize';
   return (
   
@@ -58,7 +59,7 @@ const Product: React.FC<Props> = (props) => {
               <ProductsFavoriteIcon className='fas fa-check'></ProductsFavoriteIcon>
               <ProductsFavoriteText>Yêu thích</ProductsFavoriteText>
             </ProductsFavorite>
-            <ProductsSale rightSize={rightSize} />
+            <ProductsSale productDiscount={productDiscount} />
           </ProductItem>
         </ProductList>
       </Link>

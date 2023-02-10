@@ -125,7 +125,6 @@ export const ProductDetailLabel = styled.div`
   margin-left: 24px;
   background-color: ${({ theme }) => theme.colors.mainColor};
   border-radius: 2px;
-  display: none;
 `;
 
 export const ProductDetailLabelContent = styled.div`

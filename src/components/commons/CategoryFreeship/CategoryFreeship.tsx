@@ -30,9 +30,7 @@ const CategoryFreeship = () => {
             <CategoryXtraHeading>
               <CategoryXtraHeadingText>Sản phẩm bán chạy</CategoryXtraHeadingText>
               <CategoryXtraHeadingLink>
-                <Link to=''>
-                Xem thêm
-                </Link>
+                <Link to=''>Xem thêm</Link>
                 <CategoryXtraHeadingIcon className='fas fa-chevron-right'></CategoryXtraHeadingIcon>
               </CategoryXtraHeadingLink>
             </CategoryXtraHeading>
@@ -41,19 +39,19 @@ const CategoryFreeship = () => {
               <CategoryXtraSale>
                 <CategoryXtraLink>
                   <Link to=''>
-                  <CategoryXtraProduct>
-                    <CategoryXtraProductImg
-                      src={images.productExtra.productExtra1}
-                      alt='product-sale'
-                    ></CategoryXtraProductImg>
-                    <CategoryXtraProductPrice>
-                      <CategoryXtraProductPriceText>đ</CategoryXtraProductPriceText>
-                      375.000
-                    </CategoryXtraProductPrice>
-                  </CategoryXtraProduct>
+                    <CategoryXtraProduct>
+                      <CategoryXtraProductImg
+                        src={images.productExtra.productExtra1}
+                        alt='product-sale'
+                      ></CategoryXtraProductImg>
+                      <CategoryXtraProductPrice>
+                        <CategoryXtraProductPriceText>đ</CategoryXtraProductPriceText>
+                        375.000
+                      </CategoryXtraProductPrice>
+                    </CategoryXtraProduct>
                   </Link>
                 </CategoryXtraLink>
-                <ProductsSale />
+                <ProductsSale productDiscount={50} />
               </CategoryXtraSale>
               <CategoryXtraSale>
                 <CategoryXtraLink>
@@ -68,7 +66,7 @@ const CategoryFreeship = () => {
                     </CategoryXtraProductPrice>
                   </CategoryXtraProduct>
                 </CategoryXtraLink>
-                <ProductsSale />
+                <ProductsSale productDiscount={50} />
               </CategoryXtraSale>
               <CategoryXtraSale>
                 <CategoryXtraLink>
@@ -83,7 +81,7 @@ const CategoryFreeship = () => {
                     </CategoryXtraProductPrice>
                   </CategoryXtraProduct>
                 </CategoryXtraLink>
-                <ProductsSale />
+                <ProductsSale productDiscount={50} />
               </CategoryXtraSale>
               <CategoryXtraSale>
                 <CategoryXtraLink>
@@ -98,7 +96,7 @@ const CategoryFreeship = () => {
                     </CategoryXtraProductPrice>
                   </CategoryXtraProduct>
                 </CategoryXtraLink>
-                <ProductsSale />
+                <ProductsSale productDiscount={50} />
               </CategoryXtraSale>
               <CategoryXtraSale>
                 <CategoryXtraLink>
@@ -113,7 +111,7 @@ const CategoryFreeship = () => {
                     </CategoryXtraProductPrice>
                   </CategoryXtraProduct>
                 </CategoryXtraLink>
-                <ProductsSale />
+                <ProductsSale productDiscount={50} />
               </CategoryXtraSale>
               <CategoryXtraSale>
                 <CategoryXtraLink>
@@ -128,7 +126,7 @@ const CategoryFreeship = () => {
                     </CategoryXtraProductPrice>
                   </CategoryXtraProduct>
                 </CategoryXtraLink>
-                <ProductsSale />
+                <ProductsSale productDiscount={50} />
               </CategoryXtraSale>
             </CategoryXtraList>
           </CategoryXtraContent>

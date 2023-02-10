@@ -84,35 +84,37 @@ const Header = () => {
               <ListLinkItem>
                 <TopLinkItem>
                   <Link to=''>
-                  <ListLinkItem className='icon-support'>
-                    <FooterLinkIcon className='fa-solid fa-circle-question'></FooterLinkIcon>
-                  </ListLinkItem>
-                  <TopLinkIconText>Support</TopLinkIconText>
+                    <ListLinkItem className='icon-support'>
+                      <FooterLinkIcon className='fa-solid fa-circle-question'></FooterLinkIcon>
+                    </ListLinkItem>
+                    <TopLinkIconText>Support</TopLinkIconText>
                   </Link>
                 </TopLinkItem>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
               {userCurrent && token && (
-                <HeadlessTippy
-                  interactive
-                  render={(attrs) => (
-                    <UserUser {...attrs}>
-                      <InfoUser>
-                        <InfoListUser>
-                          <Link to='/account'>Tài khoản của tôi</Link>
-                        </InfoListUser>
-                        <InfoListUser onClick={handleLogOut}>Đăng xuất</InfoListUser>
-                      </InfoUser>
-                    </UserUser>
-                  )}
-                >
-                  <ListLinkItemUserLogin>
-                    <UserLogin>
-                      <ListItemUserImg src={images.userImg.userImg} alt='user' />
-                      <ListItemUserName>{userCurrent}</ListItemUserName>
-                    </UserLogin>
-                  </ListLinkItemUserLogin>
-                </HeadlessTippy>
+                <div>
+                  <HeadlessTippy
+                    interactive
+                    render={(attrs) => (
+                      <UserUser {...attrs}>
+                        <InfoUser>
+                          <InfoListUser>
+                            <Link to='/account'>Tài khoản của tôi</Link>
+                          </InfoListUser>
+                          <InfoListUser onClick={handleLogOut}>Đăng xuất</InfoListUser>
+                        </InfoUser>
+                      </UserUser>
+                    )}
+                  >
+                    <ListLinkItemUserLogin>
+                      <UserLogin>
+                        <ListItemUserImg src={images.userImg.userImg} alt='user' />
+                        <ListItemUserName>{userCurrent}</ListItemUserName>
+                      </UserLogin>
+                    </ListLinkItemUserLogin>
+                  </HeadlessTippy>
+                </div>
               )}
               {!!userCurrent && !!token && (
                 <>

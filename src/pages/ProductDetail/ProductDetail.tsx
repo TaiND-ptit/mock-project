@@ -51,12 +51,12 @@ import {
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getProduct } from 'api/product.api';
-import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from 'store/cartSlice';
 import { RootState } from 'store/store';
 import CarouselProduct from 'components/commons/CarouselProduct/CarouselProduct';
+import Loading from 'components/commons/Loading/Loading';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams();
@@ -70,11 +70,12 @@ const ProductDetail: React.FC = () => {
   });
   const product = productDetailQuery.data?.data.data;
   const dataImages = productDetailQuery.data?.data.data.images;
+  let discountedPrice = product?.price - product?.price * (product?.discount / 100);
 
   const addToCartHandler = (product: any) => {
-    let totalPrice = quantity * product.price;
+    let totalPrice = quantity * discountedPrice;
 
-    dispatch(addToCart({ ...product, quantity: quantity, totalPrice }));
+    dispatch(addToCart({ ...product, quantity: quantity, totalPrice, discountedPrice }));
   };
 
   const decreaseQuantity = () => {
@@ -95,9 +96,7 @@ const ProductDetail: React.FC = () => {
   return (
     <Wrapper>
       {productDetailQuery.isLoading && (
-        <WapperLoading>
-          <Spin size='large' />
-        </WapperLoading>
+        <Loading/>
       )}
       {!productDetailQuery.isLoading && (
         <WrapperContainer>
@@ -136,11 +135,13 @@ const ProductDetail: React.FC = () => {
                     </ProductVoteContent>
                   </ProductDetailVote>
                   <ProductDetailPrice>
-                    <ProductDetailPriceOld>50.700đ</ProductDetailPriceOld>
-                    <ProductDetailPriceNew>{productDetailQuery.data?.data.data.price}</ProductDetailPriceNew>
+                    <ProductDetailPriceOld>{productDetailQuery.data?.data.data.price}đ</ProductDetailPriceOld>
+                    <ProductDetailPriceNew>{discountedPrice}đ</ProductDetailPriceNew>
                     <ProductDetailLabel>
                       <ProductDetailLabelContent>
-                        <ProductDetailLabelDiscount>30%</ProductDetailLabelDiscount>
+                        <ProductDetailLabelDiscount>
+                          {productDetailQuery.data?.data.data.discount}%
+                        </ProductDetailLabelDiscount>
                         GIẢM
                       </ProductDetailLabelContent>
                     </ProductDetailLabel>

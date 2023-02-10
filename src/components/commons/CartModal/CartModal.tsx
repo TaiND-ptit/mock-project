@@ -33,7 +33,7 @@ const CartModal: React.FC<Props> = (props) => {
                   />
                 </CartModalItemImgCnt>
                 <CartModalItemTitle>{cart.name}</CartModalItemTitle>
-                <CartModalItemPrice>{cart.price}đ</CartModalItemPrice>
+                <CartModalItemPrice>{cart.discountedPrice}đ</CartModalItemPrice>
               </CartModalItem>
             );
           })}
