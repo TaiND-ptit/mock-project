@@ -1,7 +1,7 @@
 import http from 'utils/http';
-export const paymentUser = async (paymentData: any, config: any) => {
+export const updateProfileUser = async (userData: any, config: any) => {
   const data = await http
-    .post('payment', paymentData, config)
+    .patch('edit-profile-user', userData, config)
     .then((response) => response)
     .catch((error) => {
       console.log(error);

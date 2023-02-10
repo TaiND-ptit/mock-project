@@ -8,8 +8,6 @@ export const AccountWrapper = styled.div`
   width: 1200px;
 `;
 
-
-
 export const AccountRight = styled.div`
   position: relative;
   flex-grow: 1;
@@ -70,15 +68,15 @@ export const AccountInfoLeft = styled.div`
 `;
 
 export const AccountInfoRight = styled.div`
-display: flex;
-width: 17.5rem;
-    overflow: hidden;
-    border-left: 0.0625rem solid #efefef;
-    justify-content: center;
+  display: flex;
+  width: 17.5rem;
+  overflow: hidden;
+  border-left: 0.0625rem solid #efefef;
+  justify-content: center;
 `;
 
 export const ChooseImg = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

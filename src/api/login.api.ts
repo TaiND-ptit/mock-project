@@ -13,5 +13,4 @@ import http from 'utils/http';
 //   authorisation: Authorisation;
 // }
 
-export const loginUser = (userLogin: Omit<User, 'avatar' | 'name'>) =>
-  http.post('login', userLogin)
+export const loginUser = (userLogin: Omit<User, 'avatar' | 'name'>) => http.post('login', userLogin);

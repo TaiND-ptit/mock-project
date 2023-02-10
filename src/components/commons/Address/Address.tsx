@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllCarts } from 'store/cartSlice';
 import { RootState } from 'store/store';
 import { paymentUser } from 'api/payment.api';
+import { useNavigate } from 'react-router-dom';
 type paymentType = {
   name: string;
   phone: string;
@@ -23,15 +24,13 @@ type paymentType = {
 };
 const Address = () => {
   const carts = useSelector(getAllCarts);
+  const navigate = useNavigate();
+  const tokenLocalStorage = localStorage.getItem('login');
+  const token: string = tokenLocalStorage ? JSON.parse(tokenLocalStorage) : '';
   const { itemsCount, totalAmount } = useSelector((state: RootState) => state.cart);
   const test = carts?.map((cart: any) => ({ product_id: cart.id, quantity: cart.quantity, price: cart.totalPrice }));
   // console.log(test);
 
-  const paymentUserMutation = useMutation({
-    mutationFn: (body: paymentType) => {
-      return paymentUser(body);
-    }
-  });
   const onFinish = (values: any) => {
     const paymentData: paymentType = {
       name: values.name,
@@ -40,14 +39,21 @@ const Address = () => {
       total: totalAmount,
       obj: test
     };
-    console.log(paymentData);
+    // console.log(paymentData);
+    const config = {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json'
+      }
+    };
 
-    paymentUserMutation.mutate(paymentData, {
-      onSuccess: () => {
+    // paymentUser(paymentData, config);
+    paymentUser(paymentData, config).then((response) => {
+      if (response?.data.status === 'success')
         Modal.success({
           content: 'Thanh toán thành công'
         });
-      }
+      navigate('/order');
     });
   };
 

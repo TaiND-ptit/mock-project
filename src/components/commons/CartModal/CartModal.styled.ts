@@ -92,10 +92,9 @@ export const ViewCartBtn = styled.button`
   text-align: center;
   margin: auto;
 
-  a{
-    color: ${({ theme }) => theme.colors.whiteColor}
+  a {
+    color: ${({ theme }) => theme.colors.whiteColor};
   }
-  
 `;
 
 export const CartModalEmpty = styled.div`

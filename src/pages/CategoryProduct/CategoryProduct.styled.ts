@@ -46,5 +46,3 @@ export const CategoryProductBorder = styled.div`
   height: 3.5px;
   background-color: #f12f09;
 `;
-
-

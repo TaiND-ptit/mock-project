@@ -42,19 +42,19 @@ const Register = () => {
       return addUser(body);
     }
   });
-  
+
   const onFinish = (values: any) => {
     const registerData: any = {
       name: values.name,
       email: values.email,
       password: values.password
     };
-     
+
     registerUserMutation.mutate(registerData, {
       onSuccess: () => {
         navigate('/login');
-        }
-      })
+      }
+    });
   };
 
   return (
@@ -110,7 +110,7 @@ const Register = () => {
               <Form.Item>
                 <ButtonLogin htmlType='submit'>Đăng kí</ButtonLogin>
               </Form.Item>
-            
+
               <FormOr>
                 <FormOrFirst></FormOrFirst>
                 <FormOrContent>Hoặc</FormOrContent>
