@@ -19,7 +19,7 @@ interface Props {
 }
 
 const ProductList: React.FC<Props> = (props) => {
-  const { productLoading, productData} = props;
+  const { productLoading, productData } = props;
 
   // const queryString: { page?: string } = useQueryString();
   // const page = Number(queryString.page) || 1;
@@ -51,19 +51,20 @@ const ProductList: React.FC<Props> = (props) => {
           </ProductLoading>
         )}
         {!productLoading && (
-        <>
-        {productData.map((product:any) => (
-          <Product 
-          key={product.id}
-          productId={product.id}
-          productDiscount={product.discount}
-          productImg={product?.images[0].image}
-          productPrice={product.price}
-          productName={product.name}
-          productDescription={product.description}
-          />
-        ))}
-        </>)}
+          <>
+            {productData.map((product: any) => (
+              <Product
+                key={product.id}
+                productId={product.id}
+                productDiscount={product.discount}
+                productImg={product?.images[0].image}
+                productPrice={product.price}
+                productName={product.name}
+                productDescription={product.description}
+              />
+            ))}
+          </>
+        )}
       </ProductListContainer>
     </Wrapper>
   );

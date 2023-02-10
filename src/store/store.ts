@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import sidebarReducer from './sidebarSlice';
 import pageReducer from './paginationSlice';
-import cartReducer from "./cartSlice";
+import cartReducer from './cartSlice';
 // import categoryReducer from "./categorySlice";
 // import searchReducer from "./searchSlice";
 // import productReducer from "./productSlice";
@@ -11,14 +11,13 @@ const store = configureStore({
   reducer: {
     sidebar: sidebarReducer,
     pagination: pageReducer,
-    cart: cartReducer,
+    cart: cartReducer
     // category: categoryReducer,
     // search: searchReducer
     // product: productReducer,
-
   }
 });
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;

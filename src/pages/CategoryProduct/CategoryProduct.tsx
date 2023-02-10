@@ -30,24 +30,24 @@ const CategoryProduct = () => {
         </CategoryProductTitle>
       </CategoryProductHeader> */}
       <CategoryProductContainer>
-      {CategoryProductList.length === 0 ? (
-      <Loading/>
-      ) : (
-        <>
-          {CategoryProductList.map((product: any) => (
-            <Product
-              key={product.id}
-              productDiscount={product.discount}
-              productId={product.id}
-              productImg={product?.images[0].image}
-              productPrice={product.price}
-              productName={product.name}
-              productDescription={product.description}
-            />
-          ))}
-        </>
-      )}
-    </CategoryProductContainer>
+        {CategoryProductList.length === 0 ? (
+          <Loading />
+        ) : (
+          <>
+            {CategoryProductList.map((product: any) => (
+              <Product
+                key={product.id}
+                productDiscount={product.discount}
+                productId={product.id}
+                productImg={product?.images[0].image}
+                productPrice={product.price}
+                productName={product.name}
+                productDescription={product.description}
+              />
+            ))}
+          </>
+        )}
+      </CategoryProductContainer>
     </Wrapper>
   );
 };

@@ -5,11 +5,7 @@ class Http {
   constructor() {
     this.instance = axios.create({
       baseURL: 'http://dung.fresher.ameladev.click/api/',
-      timeout: 10000,
-      headers: {
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
-        // 'Content-Type': 'application/json',
-      }
+      timeout: 10000
     });
   }
 }

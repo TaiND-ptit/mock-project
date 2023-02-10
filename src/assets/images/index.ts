@@ -55,7 +55,7 @@ const images = {
     appStore
   },
 
-  userImg: {userImg},
+  userImg: { userImg },
 
   formLeft: { loginImg },
 

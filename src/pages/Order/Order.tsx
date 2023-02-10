@@ -1,4 +1,4 @@
-import { Wrapper, OrderContainer } from'./Order.styled';
+import { Wrapper, OrderContainer } from './Order.styled';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import MenuAccount from 'components/commons/MenuAccount/MenuAccount';
@@ -44,10 +44,10 @@ const Order = () => {
   return (
     <Wrapper>
       <AccountWrapper>
-        <MenuAccount/>
+        <MenuAccount />
         <AccountRight>
           <OrderContainer>
-          <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
+            <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
           </OrderContainer>
         </AccountRight>
       </AccountWrapper>

@@ -41,7 +41,6 @@ export const BannerRightItem = styled.li`
   }
 `;
 
-
 export const BannerRightImg = styled.img`
   width: 100%;
   height: 124px;

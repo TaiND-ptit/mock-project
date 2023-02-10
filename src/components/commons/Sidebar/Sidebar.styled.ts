@@ -65,18 +65,17 @@ export const CategoryItem = styled.li`
   padding: 0.8rem 0;
   margin-right: 1.2rem;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
-  a{
+  a {
     font-size: 14px;
     letter-spacing: 0.3px;
     line-height: 1.6;
     text-decoration: none;
     text-transform: capitalize;
     transition: all 300ms ease-in-out;
-  
+
     &:hover {
       color: #ff6433;
       margin-left: 10px;
     }
   }
 `;
-

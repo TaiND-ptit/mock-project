@@ -6,7 +6,7 @@ import {
   SidebarContainer,
   CategoryTitle,
   CategoryList,
-  CategoryItem,
+  CategoryItem
 } from './Sidebar.styled';
 
 import { useSelector, useDispatch } from 'react-redux';

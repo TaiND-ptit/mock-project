@@ -95,9 +95,7 @@ const ProductDetail: React.FC = () => {
   };
   return (
     <Wrapper>
-      {productDetailQuery.isLoading && (
-        <Loading/>
-      )}
+      {productDetailQuery.isLoading && <Loading />}
       {!productDetailQuery.isLoading && (
         <WrapperContainer>
           <ProductDetailContainer>

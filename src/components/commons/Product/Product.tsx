@@ -20,30 +20,26 @@ import ProductsSale from '../ProductsSale/ProductsSale';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  productId: number,
-  productName: string,
-  productDiscount: number,
-  productDescription: string,
-  productImg: string,
-  productPrice: number
+  productId: number;
+  productName: string;
+  productDiscount: number;
+  productDescription: string;
+  productImg: string;
+  productPrice: number;
 }
 
 const Product: React.FC<Props> = (props) => {
-  const { productId, productImg, productPrice, productName, productDiscount,productDescription } = props;
+  const { productId, productImg, productPrice, productName, productDiscount, productDescription } = props;
   let rightSize: string = 'rightSize';
   return (
-  
     <ProductsContainer>
       <Link to={`/product/${productId}`}>
         <ProductList>
           <ProductItem>
-       
             <ProductImg src={`http://dung.fresher.ameladev.click/storage/uploads/${productImg}`}></ProductImg>
             <ProductContent>
               <ProductsImgName>
-                <ProductsNameContent>
-                  {productName}
-                </ProductsNameContent>
+                <ProductsNameContent>{productName}</ProductsNameContent>
               </ProductsImgName>
 
               <ProductsPrice>

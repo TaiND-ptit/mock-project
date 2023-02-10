@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Select, Form, Input, Modal } from 'antd';
 import {
   AccountWrapper,
   AccountRight,
@@ -14,17 +14,52 @@ import {
   AccountInfoRight,
   ChooseImg
 } from './MyAccount.styled';
-import images from 'assets/images';
-import Order from 'pages/Order/Order';
 import MenuAccount from 'components/commons/MenuAccount/MenuAccount';
+import { updateProfileUser } from 'api/edit-profile.api';
 
+type editProfileUserType = {
+  phone: string;
+  age: string;
+  gender: string;
+  address: string;
+  image: string;
+};
 const MyAccount = () => {
+  const { Option } = Select;
+  const navigate = useNavigate();
+  const tokenLocalStorage = localStorage.getItem('login');
+  const token: string = tokenLocalStorage ? JSON.parse(tokenLocalStorage) : '';
+
   const onFinish = (values: any) => {
-    // console.log('Success:', values);
+    const userData: editProfileUserType = {
+      phone: values.phone,
+      age: values.age,
+      gender: values.gender,
+      address: values.address,
+      image: ''
+    };
+    console.log(userData);
+
+    const config = {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json'
+      }
+    };
+
+    updateProfileUser(userData, config).then((response) => {
+      if (response?.data.status === 'success')
+        Modal.success({
+          content: 'Cập nhật thành công'
+        });
+      // navigate('/');
+    });
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    // console.log('Failed:', errorInfo);
+    Modal.error({
+      content: 'Cập nhật thất bại'
+    });
   };
   return (
     <AccountWrapper>
@@ -52,41 +87,39 @@ const MyAccount = () => {
                   autoComplete='off'
                 >
                   <Form.Item
-                    label='Tên Đăng nhập'
-                    name='username'
-                    rules={[{ required: true, message: 'Vui lòng nhập tên đăng nhập!' }]}
-                  >
-                    <Input />
-                  </Form.Item>
-                  <Form.Item
-                    label='Tên'
-                    name='fullname'
-                    rules={[{ required: true, message: 'Vui lòng nhập đầy đủ họ tên!' }]}
-                  >
-                    <Input />
-                  </Form.Item>
-                  <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Vui lòng nhập email!' }]}>
-                    <Input />
-                  </Form.Item>
-                  <Form.Item
                     label='Số điện thoại'
                     name='phone'
-                    rules={[{ required: true, message: 'Vui lòng nhập số điện thoại!' }]}
+                    rules={[
+                      { required: true, message: 'Vui lòng nhập số điện thoại!' },
+                      { min: 10, message: 'Số điện thoại cần 10 số' }
+                    ]}
                   >
                     <Input />
                   </Form.Item>
-
+                  <Form.Item label='Tuổi' name='age' rules={[{ required: true, message: 'Vui lòng nhập tuổi!' }]}>
+                    <Input />
+                  </Form.Item>
+                  <Form.Item name='gender' label='Giới tính' rules={[{ required: true }]}>
+                    <Select
+                      // onChange={onGenderChange}
+                      allowClear
+                    >
+                      <Option value='1'>Nam</Option>
+                      <Option value='2'>Nữ</Option>
+                      <Option value='3'>Khác</Option>
+                    </Select>
+                  </Form.Item>
                   <Form.Item
-                    label='Ngày sinh'
-                    name='brith'
-                    rules={[{ required: true, message: 'Vui lòng nhập ngày sinh!' }]}
+                    label='Địa chỉ'
+                    name='address'
+                    rules={[{ required: true, message: 'Vui lòng nhập địa chỉ!' }]}
                   >
                     <Input />
                   </Form.Item>
 
                   <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button type='primary' htmlType='submit'>
-                      Submit
+                      Cập nhật
                     </Button>
                   </Form.Item>
                 </Form>
