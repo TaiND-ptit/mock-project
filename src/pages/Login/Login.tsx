@@ -1,4 +1,3 @@
-import Footer from 'components/commons/Footer/Footer';
 import HeaderLoginRegister from 'components/commons/HeaderLoginRegister/HeaderLoginRegister';
 import {
   Container,

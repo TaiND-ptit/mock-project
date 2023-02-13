@@ -6,13 +6,12 @@ export const AccountWrapper = styled.div`
   margin-right: auto;
   margin-left: auto;
   width: 1200px;
-  
+
   @media (max-width: 64em) {
     width: 80%;
     margin: auto;
     flex-direction: column;
   }
-
 `;
 
 export const AccountRight = styled.div`

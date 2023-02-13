@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     width: 90%;
     margin: 0 auto;
     overflow: hidden;
-   }
+  }
 `;
 
 export const CategoryContainer = styled.div`

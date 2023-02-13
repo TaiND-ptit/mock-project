@@ -8,8 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const FormLoginLeft = styled.div`
-`;
+export const FormLoginLeft = styled.div``;
 
 export const FormLoginLeftImg = styled.img`
   // padding-top: 50%;
@@ -25,8 +24,6 @@ export const FormLoginRight = styled.div`
   box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
   transform: translateX(-162px);
   border-radius: 4px;
-
- 
 `;
 export const FormLoginRegister = styled.div`
   padding: 30px;

@@ -29,11 +29,11 @@ export const SidebarShowBtn = styled.button`
   background-color: transparent;
   font-size: 4rem;
   color: ${({ theme }) => theme.colors.whiteColor};
-  
+
   &:hover {
     opacity: 0.9;
   }
-   
+
   @media (max-width: 64em) {
     display: block;
   }
@@ -157,7 +157,6 @@ export const CategoryList = styled.ul`
   @media (max-width: 64em) {
     display: none;
   }
-
 `;
 
 export const CategoryItem = styled.li`
