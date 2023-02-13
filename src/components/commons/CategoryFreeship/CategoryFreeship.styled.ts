@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   @media (max-width: 64em) {
     display: none;
-   }
+  }
 `;
 
 export const CategoryFreeshipContainer = styled.div`

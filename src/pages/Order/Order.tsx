@@ -6,8 +6,15 @@ import MenuAccount from 'components/commons/MenuAccount/MenuAccount';
 import { AccountRight, AccountWrapper } from 'pages/MyAccount/MyAccount.styled';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getToken } from 'store/authSlice';
+import type { ColumnsType } from 'antd/es/table';
 
+interface DataType {
+  key: number;
+  totalPrice: number;
+  status: string;
+}
 const Order = () => {
   const [dataSource, setDataSource] = useState([]);
   const token = useSelector(getToken);
@@ -17,7 +24,6 @@ const Order = () => {
       'Content-Type': 'application/json'
     }
   };
-  console.log(token);
 
   useEffect(() => {
     getListOrder(config).then((response) => {
@@ -26,52 +32,36 @@ const Order = () => {
     });
   }, [token]);
 
-  const test = dataSource.map((orders: any) => {
-    orders.map((order: any) => ({
-    totalPrice: order?.order_total,
-    status: order?.order_status
-    }))
-    //  console.log('order',order);
-    //  console.log('order',order[0].order_total);
+  const data: any = [...dataSource];
+
+  const listOrder = data[0]?.map((order: any) => ({
+    orderId: order.id,
+    totalPrice: order.order_total,
+    status: order.order_status === 1 ? 'Chưa thanh toán' : 'Đã thanh toán'
+  }));
+
+  const unpaidOrder = listOrder?.filter((order: any) => {
+    return order.status === 'Chưa thanh toán';
   });
 
-  console.log(dataSource);
-  console.log('test', test);
+  const paidOrder = listOrder?.filter((order: any) => {
+    return order.status === 'Đã thanh toán';
+  });
 
-  const onChange = (key: string) => {
-    // console.log(key);
-  };
-  // const dataSource = [
-  //   {
-  //     key: '1',
-  //     name: 'Mike',
-  //     age: 32,
-  //     address: '10 Downing Street',
-  //   },
-  //   {
-  //     key: '2',
-  //     name: 'John',
-  //     age: 42,
-  //     address: '10 Downing Street',
-  //   },
-  // ];
+  const onChange = (key: string) => {};
 
-  const columns = [
+  const columns: ColumnsType<DataType> = [
     {
       title: 'Tổng tiền',
       dataIndex: 'totalPrice',
-      key: 'totalPrice'
+      key: 'totalPrice',
+      render: (text) => <Link to=''>{text}</Link>
     },
     {
       title: 'Trạng thái',
       dataIndex: 'status',
       key: 'status'
     }
-    // {
-    //   title: 'Address',
-    //   dataIndex: 'address',
-    //   key: 'address',
-    // },
   ];
   const items: TabsProps['items'] = [
     {
@@ -79,7 +69,7 @@ const Order = () => {
       label: `Tất cả`,
       children: (
         <>
-          <Table dataSource={dataSource} columns={columns} />
+          <Table dataSource={listOrder} columns={columns} />
         </>
       )
     },
@@ -88,37 +78,33 @@ const Order = () => {
       label: `Chờ thanh toán`,
       children: (
         <>
-        <h1> jjj</h1>
-          {dataSource.map((data: any) => {
-            console.log(data.order_total);
-             
-            <>
-              <h1>hhhh</h1>
-              {/* <h1>{data.order_total}</h1> */}
-            </>;
-          })}
+          <Table dataSource={unpaidOrder} columns={columns} />
         </>
       )
     },
     {
       key: '3',
       label: `Vận Chuyển`,
-      children: `Content of Tab Pane 3`
+      children: (
+        <>
+          <Table dataSource={paidOrder} columns={columns} />
+        </>
+      )
     },
     {
       key: '4',
       label: `Đang giao`,
-      children: `Content of Tab Pane 2`
+      children: `chưa có sp`
     },
     {
       key: '5',
       label: `Hoàn thành`,
-      children: `Content of Tab Pane 3`
+      children: `chưa có sp`
     },
     {
       key: '6',
       label: `Đã hủy`,
-      children: `Content of Tab Pane 3`
+      children: `chưa có sp`
     }
   ];
   return (

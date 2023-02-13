@@ -6,11 +6,9 @@ export const Wrapper = styled.div`
     width: 80%;
     margin: 0 auto;
   }
-
 `;
 
 export const WrapperContainer = styled.div`
-
   background-color: ${({ theme }) => theme.colors.backgroundColor};
 `;
 

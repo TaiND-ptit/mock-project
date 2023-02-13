@@ -27,7 +27,6 @@ const Address = () => {
   const carts = useSelector(getAllCarts);
   const navigate = useNavigate();
   const token = useSelector(getToken);
-  console.log(token);
 
   const { totalAmount } = useSelector((state: RootState) => state.cart);
   const test = carts?.map((cart: any) => ({ product_id: cart.id, quantity: cart.quantity, price: cart.totalPrice }));
@@ -40,7 +39,7 @@ const Address = () => {
       total: totalAmount,
       obj: test
     };
-    // console.log(paymentData);
+
     const config = {
       headers: {
         Authorization: token ? `Bearer ${token}` : '',

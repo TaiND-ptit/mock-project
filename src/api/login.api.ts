@@ -1,4 +1,3 @@
-
 import { User } from './../types/user.type';
 
 import http from 'utils/http';

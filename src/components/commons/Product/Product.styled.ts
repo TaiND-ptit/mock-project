@@ -7,7 +7,7 @@ export const ProductsContainer = styled.div`
   width: 20%;
   padding-left: 6px;
   padding-right: 6px;
-  
+
   @media (max-width: 64em) {
     flex: 0 0 33.33333%;
     width: 33.33333%;

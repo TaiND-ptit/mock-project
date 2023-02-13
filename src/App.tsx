@@ -18,6 +18,7 @@ import CategoryProduct from 'pages/CategoryProduct/CategoryProduct';
 import Order from 'pages/Order/Order';
 import Address from 'components/commons/Address/Address';
 import NotFound from 'pages/NotFound/NotFound';
+import OrderDetail from 'pages/OrderDetail/OrderDetail';
 
 const theme = {
   colors: {
@@ -51,6 +52,7 @@ function App() {
                 <Route path='/account' element={<MyAccount />} />
                 <Route path='/order' element={<Order />} />
                 <Route path='/address' element={<Address />} />
+                <Route path='/orderDetail' element={<OrderDetail />} />
                 <Route path='/*' element={<NotFound />} />
               </Routes>
 

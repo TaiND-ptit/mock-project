@@ -30,7 +30,6 @@ const MyAccount = () => {
   const navigate = useNavigate();
   const token = useSelector(getToken);
 
-
   const onFinish = (values: any) => {
     const userData: editProfileUserType = {
       phone: values.phone,
@@ -39,7 +38,6 @@ const MyAccount = () => {
       address: values.address,
       image: ''
     };
-    console.log(userData);
 
     const config = {
       headers: {

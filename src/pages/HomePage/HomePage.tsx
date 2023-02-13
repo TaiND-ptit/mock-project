@@ -13,12 +13,7 @@ import { RootState } from 'store/store';
 function HomePage() {
   let pageNumber = useSelector((state: RootState) => state.pagination.pageNumber);
 
-  // const queryString: { page?: string } = useQueryString();
-  // const page = Number(queryString.page) | 1;
-
   const page = Number(pageNumber);
-
-  // const [_page] = useState(1);
 
   const productsQuery = useQuery({
     queryKey: ['products', page],
@@ -26,8 +21,6 @@ function HomePage() {
     keepPreviousData: true
   });
 
-  // const totalProductsCount = Number(productsQuery?.data?.data?.data?.total || 0);
-  // const totalPage = Math.ceil(totalProductsCount / LIMIT);
   return (
     <Wrapper>
       <SliderWrapper>

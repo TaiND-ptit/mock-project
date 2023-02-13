@@ -1,4 +1,3 @@
-
 import {
   FooterContainer,
   FooterContent,

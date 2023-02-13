@@ -40,7 +40,7 @@ const ProductList: React.FC<Props> = (props) => {
         )}
         {!productLoading && (
           <>
-            {productData.map((product: any) => (
+            {productData?.map((product: any) => (
               <Product
                 key={product.id}
                 productId={product.id}

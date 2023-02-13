@@ -135,9 +135,7 @@ const images = {
     productExtra15,
     productExtra16,
     productExtra17,
-    productExtra18,
-  
- 
+    productExtra18
   },
 
   productDetail: {

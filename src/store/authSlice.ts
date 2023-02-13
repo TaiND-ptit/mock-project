@@ -29,7 +29,7 @@ const authSlice = createSlice({
   }
 });
 
-export const { addToken,addUserName, clearTokenAndName } = authSlice.actions;
+export const { addToken, addUserName, clearTokenAndName } = authSlice.actions;
 export const getToken = (state: RootState) => state.auth.accessToken;
 export const getUserName = (state: RootState) => state.auth.userName;
 export default authSlice.reducer;
