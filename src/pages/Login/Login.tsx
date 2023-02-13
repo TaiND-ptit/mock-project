@@ -28,31 +28,28 @@ import {
   MesError
 } from './Login.styled';
 import images from 'assets/images';
-import { Button, Form, Input } from 'antd';
+import { Form } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, UserLogin } from 'types/user.type';
+import { User } from 'types/user.type';
 import { loginUser } from 'api/login.api';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToken, addUserName } from 'store/authSlice';
+import { getAllCarts } from 'store/cartSlice';
 
 type FormStateLogin = Omit<User, 'avatar' | 'name'>;
-
-// const initialFormState: FormStateLogin = {
-//   email: '',
-//   password: ''
-// };
-
 const Login = () => {
   const navigate = useNavigate();
-  // const [formState, setFormState] = useState<UserLogin>(initialFormState);
-
+  const dispatch = useDispatch();
+  const carts = useSelector(getAllCarts);
+  const isItemCart: number = carts.length;
   const loginUserMutation = useMutation({
     mutationFn: (body: FormStateLogin) => {
       return loginUser(body).then(function (response) {
-        const token = response.data.authorisation.token;
-        const user = response.data.user.name;
-        localStorage.setItem('login', JSON.stringify(token));
-        localStorage.setItem('userLogin', JSON.stringify(user));
+        const accessToken = response.data.authorisation.token;
+        const userName: string = response.data.user.name;
+        dispatch(addToken(accessToken));
+        dispatch(addUserName(userName));
       });
     }
   });
@@ -65,7 +62,11 @@ const Login = () => {
 
     loginUserMutation.mutate(loginData, {
       onSuccess: () => {
-        navigate('/');
+        if (isItemCart === 0) {
+          navigate('/');
+        } else {
+          navigate('/cart');
+        }
       }
     });
   };
@@ -149,8 +150,6 @@ const Login = () => {
           </FormLoginRegister>
         </FormLoginRight>
       </Container>
-
-      <Footer />
     </div>
   );
 };

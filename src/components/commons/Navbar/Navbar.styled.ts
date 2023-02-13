@@ -25,11 +25,17 @@ export const SidebarShowBtn = styled.button`
   cursor: pointer;
   outline: 0;
   border: none;
+  display: none;
   background-color: transparent;
   font-size: 4rem;
   color: ${({ theme }) => theme.colors.whiteColor};
+  
   &:hover {
     opacity: 0.9;
+  }
+   
+  @media (max-width: 64em) {
+    display: block;
   }
 `;
 
@@ -147,6 +153,11 @@ export const CategoryList = styled.ul`
   list-style: none;
   padding-left: 0;
   z-index: 2;
+
+  @media (max-width: 64em) {
+    display: none;
+  }
+
 `;
 
 export const CategoryItem = styled.li`

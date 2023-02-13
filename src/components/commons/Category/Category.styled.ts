@@ -6,6 +6,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 15px -6px;
+  @media (max-width: 64em) {
+    padding: 15px 0;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+   }
 `;
 
 export const CategoryContainer = styled.div`

@@ -25,23 +25,39 @@ import {
   InfoListUser
 } from './Header.styled';
 import images from 'assets/images';
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import http from 'utils/http';
 import { clearCart } from 'store/cartSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearTokenAndName, getToken, getUserName } from 'store/authSlice';
+import { logoutUser } from 'api/logout.api';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const username: any = localStorage.getItem('userLogin');
-  const tokenLocalStorage: any = localStorage.getItem('login');
-  const [userCurrent, setUserCurrent] = useState(username);
-  const [token, setToken] = useState(tokenLocalStorage);
+
+  const tokenGlobal = useSelector(getToken);
+  const userName = useSelector(getUserName);
+  const [userCurrent, setUserCurrent] = useState<String>('');
+  const [token, setToken] = useState<String>('');
+
+  useEffect(() => {
+    setToken(tokenGlobal);
+    setUserCurrent(userName);
+  }, [tokenGlobal]);
 
   const handleLogOut = () => {
-    http.get('/logout');
-    dispatch(clearCart());
-    localStorage.removeItem('userLogin');
-    localStorage.removeItem('login');
+    const config = {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json'
+      }
+    };
+    logoutUser(config).then((response) => {
+      if (response?.data.status === 'success') {
+        dispatch(clearCart());
+        dispatch(clearTokenAndName());
+      }
+    });
   };
 
   return (
@@ -95,7 +111,7 @@ const Header = () => {
                 </TopLinkItem>
               </ListLinkItem>
               <ListLinkItem className='vert-line'></ListLinkItem>
-              {userCurrent && token ? (
+              {token ? (
                 <div>
                   <HeadlessTippy
                     interactive

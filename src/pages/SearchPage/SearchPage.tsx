@@ -14,7 +14,6 @@ import { useParams } from 'react-router-dom';
 import { getSearchProducts } from 'api/search.api';
 import Product from 'components/commons/Product/Product';
 import { ProductLoading } from 'components/commons/ProductList/ProductList.styled';
-import { clearConfigCache } from 'prettier';
 import axios from 'axios';
 import http from 'utils/http';
 

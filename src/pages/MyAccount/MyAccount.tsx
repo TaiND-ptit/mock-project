@@ -16,7 +16,8 @@ import {
 } from './MyAccount.styled';
 import MenuAccount from 'components/commons/MenuAccount/MenuAccount';
 import { updateProfileUser } from 'api/edit-profile.api';
-
+import { useSelector } from 'react-redux';
+import { getToken } from 'store/authSlice';
 type editProfileUserType = {
   phone: string;
   age: string;
@@ -27,8 +28,8 @@ type editProfileUserType = {
 const MyAccount = () => {
   const { Option } = Select;
   const navigate = useNavigate();
-  const tokenLocalStorage = localStorage.getItem('login');
-  const token: string = tokenLocalStorage ? JSON.parse(tokenLocalStorage) : '';
+  const token = useSelector(getToken);
+
 
   const onFinish = (values: any) => {
     const userData: editProfileUserType = {

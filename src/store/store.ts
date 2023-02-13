@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import sidebarReducer from './sidebarSlice';
 import pageReducer from './paginationSlice';
 import cartReducer from './cartSlice';
-// import categoryReducer from "./categorySlice";
+import authReducer from "./authSlice";
 // import searchReducer from "./searchSlice";
 // import productReducer from "./productSlice";
 // import cartReducer from "./cartSlice";
@@ -11,8 +11,8 @@ const store = configureStore({
   reducer: {
     sidebar: sidebarReducer,
     pagination: pageReducer,
-    cart: cartReducer
-    // category: categoryReducer,
+    cart: cartReducer,
+    auth: authReducer,
     // search: searchReducer
     // product: productReducer,
   }

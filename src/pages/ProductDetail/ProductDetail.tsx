@@ -51,7 +51,7 @@ import {
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getProduct } from 'api/product.api';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from 'store/cartSlice';
 import { RootState } from 'store/store';
@@ -136,12 +136,16 @@ const ProductDetail: React.FC = () => {
                     <ProductDetailPriceOld>{productDetailQuery.data?.data.data.price}đ</ProductDetailPriceOld>
                     <ProductDetailPriceNew>{discountedPrice}đ</ProductDetailPriceNew>
                     <ProductDetailLabel>
-                      <ProductDetailLabelContent>
-                        <ProductDetailLabelDiscount>
-                          {productDetailQuery.data?.data.data.discount}%
-                        </ProductDetailLabelDiscount>
-                        GIẢM
-                      </ProductDetailLabelContent>
+                      {productDetailQuery.data?.data.data.discount === 0 ? (
+                        <></>
+                      ) : (
+                        <ProductDetailLabelContent>
+                          <ProductDetailLabelDiscount>
+                            {productDetailQuery.data?.data.data.discount}%
+                          </ProductDetailLabelDiscount>
+                          GIẢM
+                        </ProductDetailLabelContent>
+                      )}
                     </ProductDetailLabel>
                   </ProductDetailPrice>
                   <ProductDetailDeliver>
