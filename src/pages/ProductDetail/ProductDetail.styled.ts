@@ -2,9 +2,15 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   overflow: hidden;
+  @media (max-width: 64em) {
+    width: 80%;
+    margin: 0 auto;
+  }
+
 `;
 
 export const WrapperContainer = styled.div`
+
   background-color: ${({ theme }) => theme.colors.backgroundColor};
 `;
 
@@ -27,12 +33,21 @@ export const ProductDetailInfo = styled.div`
   justify-content: space-between;
   margin-left: -6px;
   margin-right: -6px;
+  @media (max-width: 64em) {
+    flex-direction: column;
+  }
 `;
 
 export const ProductImgContainer = styled.div`
   padding: 20px 20px 20px 25px;
   flex: 0 0 41.66667%;
   width: 41.66667%;
+
+  @media (max-width: 64em) {
+    flex: 0 0 80%;
+    width: 80%;
+    margin: auto;
+  }
 `;
 
 export const ProductDetailDescription = styled.div`
@@ -41,6 +56,11 @@ export const ProductDetailDescription = styled.div`
   padding: 20px;
   flex: 0 0 58.33333%;
   width: 58.33333%;
+  @media (max-width: 64em) {
+    flex: 0 0 80%;
+    width: 80%;
+    margin: auto;
+  }
 `;
 
 export const ProductDetailTitle = styled.div`

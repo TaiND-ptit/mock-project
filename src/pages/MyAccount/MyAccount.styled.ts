@@ -6,6 +6,13 @@ export const AccountWrapper = styled.div`
   margin-right: auto;
   margin-left: auto;
   width: 1200px;
+  
+  @media (max-width: 64em) {
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+  }
+
 `;
 
 export const AccountRight = styled.div`
@@ -18,6 +25,12 @@ export const AccountRight = styled.div`
   background: #fff;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%);
   border-radius: 0.125rem;
+
+  @media (max-width: 64em) {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+  }
 `;
 
 export const AccountIfoContainer = styled.div`

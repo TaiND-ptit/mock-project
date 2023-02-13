@@ -5,6 +5,11 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-left: 6px;
   padding-right: 6px;
+
+  @media (max-width: 64em) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 export const ProductListSort = styled.div`
@@ -31,7 +36,15 @@ export const SortLabel = styled.span`
   line-height: 3rem;
   color: #f12f09;
   text-transform: uppercase;
-  margin-right: 204px;
+  @media (max-width: 64em) {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  @media (max-width: 46.25em) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 `;
 
 export const SortLabelBorder = styled.div`

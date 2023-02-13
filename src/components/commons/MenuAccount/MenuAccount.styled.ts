@@ -3,6 +3,10 @@ export const AccountLeft = styled.div`
   display: block;
   width: 20%;
   flex-shrink: 0;
+  background: ${({ theme }) => theme.colors.whiteColor};
+  @media (max-width: 64em) {
+    width: 100%;
+  }
 `;
 
 export const AccountTop = styled.div`

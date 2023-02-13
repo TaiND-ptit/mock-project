@@ -56,11 +56,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from 'store/store';
 import { Modal } from 'antd';
 import { useState } from 'react';
+import { getToken } from 'store/authSlice';
 const Cart = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const carts = useSelector(getAllCarts);
+  const token = useSelector(getToken);
   const { itemsCount, totalAmount } = useSelector((state: RootState) => state.cart);
 
   const showModal = () => {
@@ -68,8 +70,7 @@ const Cart = () => {
   };
 
   const handleOk = () => {
-    const tokenLocalStorage: any = localStorage.getItem('login');
-    if (tokenLocalStorage) {
+    if (token) {
       navigate('/address');
       setIsModalOpen(false);
     } else {

@@ -5,6 +5,10 @@ export const SliderContainer = styled.div`
   flex-wrap: wrap;
   margin-left: -2px;
   margin-right: -2px;
+  @media (max-width: 64em) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 export const BannerSlider = styled.div`
@@ -17,6 +21,15 @@ export const BannerSlider = styled.div`
   &.w-30 {
     flex: 0 0 30%;
     width: 30%;
+  }
+  @media (max-width: 64em) {
+    &.w-70 {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+    &.w-30 {
+      display: none;
+    }
   }
 `;
 

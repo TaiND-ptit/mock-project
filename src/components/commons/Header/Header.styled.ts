@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
   padding: 0 2rem;
+
 `;
 
 export const Wrapper = styled.header`
@@ -18,6 +19,7 @@ export const NavbarTop = styled.div`
   padding-bottom: 8px;
 
   @media (max-width: 64em) {
+    display: none;
     flex-direction: column;
     .navbar-left {
       margin-bottom: 4px;

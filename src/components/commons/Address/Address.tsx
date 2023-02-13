@@ -10,11 +10,12 @@ import {
   AddressLeft
 } from './Address.styled';
 import { Button, Form, Input, Modal } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getAllCarts } from 'store/cartSlice';
 import { RootState } from 'store/store';
 import { paymentUser } from 'api/payment.api';
 import { useNavigate } from 'react-router-dom';
+import { getToken } from 'store/authSlice';
 type paymentType = {
   name: string;
   phone: string;
@@ -25,11 +26,11 @@ type paymentType = {
 const Address = () => {
   const carts = useSelector(getAllCarts);
   const navigate = useNavigate();
-  const tokenLocalStorage = localStorage.getItem('login');
-  const token: string = tokenLocalStorage ? JSON.parse(tokenLocalStorage) : '';
-  const { itemsCount, totalAmount } = useSelector((state: RootState) => state.cart);
+  const token = useSelector(getToken);
+  console.log(token);
+
+  const { totalAmount } = useSelector((state: RootState) => state.cart);
   const test = carts?.map((cart: any) => ({ product_id: cart.id, quantity: cart.quantity, price: cart.totalPrice }));
-  // console.log(test);
 
   const onFinish = (values: any) => {
     const paymentData: paymentType = {
@@ -49,11 +50,7 @@ const Address = () => {
 
     // paymentUser(paymentData, config);
     paymentUser(paymentData, config).then((response) => {
-      if (response?.data.status === 'success')
-        Modal.success({
-          content: 'Thanh toán thành công'
-        });
-      navigate('/order');
+      if (response?.data.status === 'success') navigate('/order');
     });
   };
 

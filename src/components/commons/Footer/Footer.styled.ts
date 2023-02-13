@@ -9,13 +9,24 @@ export const FooterContainer = styled.footer`
 
 export const FooterContent = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 30px;
 `;
 
 export const FooterHeading = styled.div`
   margin-top: 27px;
+
+  @media (max-width: 64em) {
+    flex: 0 0 47%;
+    width: 47%;
+  }
+
+  @media (max-width: 46.25em) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
 `;
 
 export const FooterHeadingContent = styled.h3`

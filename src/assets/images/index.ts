@@ -33,6 +33,18 @@ import productExtra3 from './b-cate-3.jpg';
 import productExtra4 from './b-cate-4.jpg';
 import productExtra5 from './b-cate-5.jpg';
 import productExtra6 from './b-cate-6.jpg';
+import productExtra7 from './t-1.jpg';
+import productExtra8 from './t-2.jpg';
+import productExtra9 from './t-3.jpg';
+import productExtra10 from './t-4.jpg';
+import productExtra11 from './t-5.jpg';
+import productExtra12 from './t-6.jpg';
+import productExtra13 from './t-7.jpg';
+import productExtra14 from './t-8.jpg';
+import productExtra15 from './t-9.jpg';
+import productExtra16 from './t-10.jpg';
+import productExtra17 from './t-11.jpg';
+import productExtra18 from './t-12.jpg';
 import productDetail1 from './l-sp-1-1.jpg';
 import productDetail2 from './l-sp-1-2.jpg';
 import productDetail3 from './l-sp-1-3.jpg';
@@ -43,6 +55,8 @@ import productDetail7 from './l-sp-1-7.jpg';
 import productDetail8 from './l-sp-1-8.jpg';
 import productDetail9 from './l-sp-1-9.jpg';
 import userImg from './user.jpg';
+
+import errorImg from './error.svg';
 
 import sp1 from './sp-2.jpg';
 import sp2 from './sp-3.jpg';
@@ -56,6 +70,8 @@ const images = {
   },
 
   userImg: { userImg },
+
+  errorImg: { errorImg },
 
   formLeft: { loginImg },
 
@@ -107,7 +123,21 @@ const images = {
     productExtra3,
     productExtra4,
     productExtra5,
-    productExtra6
+    productExtra6,
+    productExtra7,
+    productExtra8,
+    productExtra9,
+    productExtra10,
+    productExtra11,
+    productExtra12,
+    productExtra13,
+    productExtra14,
+    productExtra15,
+    productExtra16,
+    productExtra17,
+    productExtra18,
+  
+ 
   },
 
   productDetail: {

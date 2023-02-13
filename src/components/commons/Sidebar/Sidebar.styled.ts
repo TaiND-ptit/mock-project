@@ -37,9 +37,33 @@ export const SidebarContainer = styled.div``;
 
 export const CategoryTitle = styled.div`
   padding-bottom: 1rem;
+  padding-top: 1rem;
   font-size: 17px;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
+`;
+
+export const SidebarTitle = styled.div`
+  padding-bottom: 1rem;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  display: flex;
+`;
+export const SidebarIcon = styled.div`
+  width: 20px;
+  height: 20px;
+`;
+
+export const SidebarText = styled.div`
+  a {
+    display: block;
+    color: ${({ theme }) => theme.colors.textColor};
+    font-size: 2.7rem;
+    padding: 0 34px;
+
+    &:hover {
+      color: #ff6433;
+    }
+  }
 `;
 
 export const CategoryList = styled.ul`
@@ -72,6 +96,7 @@ export const CategoryItem = styled.li`
     text-decoration: none;
     text-transform: capitalize;
     transition: all 300ms ease-in-out;
+    color: ${({ theme }) => theme.colors.textColor};
 
     &:hover {
       color: #ff6433;

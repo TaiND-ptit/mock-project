@@ -21,23 +21,11 @@ interface Props {
 const ProductList: React.FC<Props> = (props) => {
   const { productLoading, productData } = props;
 
-  // const queryString: { page?: string } = useQueryString();
-  // const page = Number(queryString.page) || 1;
-
-  // const productsQuery = useQuery({
-  //   queryKey: ['products', page],
-  //   queryFn: () => getProducts(page),
-  //   keepPreviousData: true
-  // });
-
-  // const totalProductsCount = Number(productsQuery?.data?.data?.data?.total || 0);
-  // const totalPage = Math.ceil(totalProductsCount / LIMIT);
-
   return (
     <Wrapper>
       <ProductListSort>
         <SortLeft>
-          <SortLabel>Gợi ý hôm nay</SortLabel>
+          <SortLabel>Danh sách sản phẩm</SortLabel>
           <SortLabelBorder></SortLabelBorder>
         </SortLeft>
         <SortRight>

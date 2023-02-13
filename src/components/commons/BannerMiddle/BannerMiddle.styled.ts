@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 15px -6px;
+
+  @media (max-width: 64em) {
+   display: none;
+  }
 `;
 
 export const BannerMiddleContainer = styled.div`

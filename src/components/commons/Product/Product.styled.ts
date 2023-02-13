@@ -3,10 +3,20 @@ import styled from 'styled-components';
 export const ProductsContainer = styled.div`
   position: relative;
   margin-top: 10px;
-  flex: 0 0 16.66667%;
-  width: 16.66667%;
+  flex: 0 0 20%;
+  width: 20%;
   padding-left: 6px;
   padding-right: 6px;
+  
+  @media (max-width: 64em) {
+    flex: 0 0 33.33333%;
+    width: 33.33333%;
+  }
+
+  @media (max-width: 46.25em) {
+    flex: 0 0 47%;
+    width: 47%;
+  }
 `;
 
 export const ProductList = styled.div`

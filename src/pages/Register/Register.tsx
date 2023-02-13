@@ -148,7 +148,6 @@ const Register = () => {
           </FormLoginRegister>
         </FormLoginRight>
       </Container>
-      <Footer />
     </>
   );
 };

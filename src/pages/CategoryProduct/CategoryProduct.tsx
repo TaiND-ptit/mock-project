@@ -11,15 +11,16 @@ import { useParams } from 'react-router-dom';
 import { getCategoryProduct } from 'api/category-product.api';
 import Loading from 'components/commons/Loading/Loading';
 import Product from 'components/commons/Product/Product';
+import { useEffect, useState } from 'react';
 const CategoryProduct = () => {
   const { id } = useParams();
+  const [categoryProductList, setCategoryProductList] = useState([]);
 
-  const CategoryProductQuery = useQuery({
-    queryKey: ['categoryProduct', id],
-    queryFn: () => getCategoryProduct(String(id)),
-    keepPreviousData: true
-  });
-  const CategoryProductList = CategoryProductQuery?.data?.data.data.data;
+  useEffect(() => {
+    getCategoryProduct(String(id)).then((response) => {
+      setCategoryProductList(response?.data?.data.data);
+    });
+  }, [id]);
 
   return (
     <Wrapper>
@@ -30,11 +31,11 @@ const CategoryProduct = () => {
         </CategoryProductTitle>
       </CategoryProductHeader> */}
       <CategoryProductContainer>
-        {CategoryProductList.length === 0 ? (
+        {categoryProductList.length === 0 ? (
           <Loading />
         ) : (
           <>
-            {CategoryProductList.map((product: any) => (
+            {categoryProductList.map((product: any) => (
               <Product
                 key={product.id}
                 productDiscount={product.discount}

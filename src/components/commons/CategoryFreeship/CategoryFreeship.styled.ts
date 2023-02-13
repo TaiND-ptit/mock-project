@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
   margin-right: -6px;
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 64em) {
+    display: none;
+   }
 `;
 
 export const CategoryFreeshipContainer = styled.div`
