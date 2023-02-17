@@ -10,8 +10,8 @@ import {
   AddressLeft
 } from './Address.styled';
 import { Button, Form, Input, Modal } from 'antd';
-import { useSelector } from 'react-redux';
-import { getAllCarts } from 'store/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart, getAllCarts } from 'store/cartSlice';
 import { RootState } from 'store/store';
 import { paymentUser } from 'api/payment.api';
 import { useNavigate } from 'react-router-dom';
@@ -26,6 +26,7 @@ type paymentType = {
 const Address = () => {
   const carts = useSelector(getAllCarts);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const token = useSelector(getToken);
 
   const { totalAmount } = useSelector((state: RootState) => state.cart);
@@ -49,7 +50,10 @@ const Address = () => {
 
     // paymentUser(paymentData, config);
     paymentUser(paymentData, config).then((response) => {
-      if (response?.data.status === 'success') navigate('/order');
+      if (response?.data.status === 'success') {
+        dispatch(clearCart());
+        navigate('/order');
+      }
     });
   };
 

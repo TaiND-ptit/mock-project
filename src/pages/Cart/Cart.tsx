@@ -138,7 +138,7 @@ const Cart = () => {
               <CartListProduct>
                 {carts.map((cart: any) => {
                   return (
-                    <CartProductMain>
+                    <CartProductMain key={cart.id}>
                       <CartProductMainImg>
                         <CartProductMainImgProduct
                           src={`http://dung.fresher.ameladev.click/storage/uploads/${cart.images[0].image}`}

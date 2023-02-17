@@ -1,13 +1,21 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
-interface authState {
-  accessToken: string;
-  userName: string;
-}
+const fetchTokenLocalStorage = () => {
+  let token = localStorage.getItem('token');
+  if (token) {
+    return JSON.parse(token);
+  } else {
+    return (token = '');
+  }
+};
 
-const initialState: authState = {
-  accessToken: '',
+const tokenInLocalStorage = (data: any) => {
+  localStorage.setItem('token', JSON.stringify(data));
+};
+
+const initialState = {
+  accessToken: fetchTokenLocalStorage(),
   userName: ''
 };
 
@@ -17,6 +25,7 @@ const authSlice = createSlice({
   reducers: {
     addToken: (state, action: PayloadAction<string>) => {
       state.accessToken = action.payload;
+      tokenInLocalStorage(state.accessToken);
     },
     addUserName: (state, action: PayloadAction<string>) => {
       state.userName = action.payload;
@@ -24,6 +33,7 @@ const authSlice = createSlice({
 
     clearTokenAndName: (state) => {
       state.accessToken = '';
+      tokenInLocalStorage(state.accessToken);
       state.userName = '';
     }
   }
