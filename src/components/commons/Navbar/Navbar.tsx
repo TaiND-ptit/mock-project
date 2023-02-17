@@ -24,7 +24,7 @@ import {
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSidebarOn } from '../../../store/sidebarSlice';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getCategorys } from 'api/category.api';
 import { getAllCarts, getCartItemsCount, getCartTotal } from 'store/cartSlice';
@@ -35,6 +35,7 @@ import Cart from '../SVG/Cart';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [searchText, setSearchText] = useState<string>('');
   const carts = useSelector(getAllCarts);
   const itemsCount = useSelector(getCartItemsCount);
@@ -47,10 +48,13 @@ const Navbar = () => {
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setSearchText(event.target.value);
   };
-  // dispatch(getCategory(categorysQuery?.data?.data.data));
   useEffect(() => {
     dispatch(getCartTotal());
   }, [carts]);
+
+  const handleSearch = () => {
+    navigate(`/search/${searchText}`);
+  };
 
   return (
     <Wrapper>
@@ -77,12 +81,9 @@ const Navbar = () => {
                 value={searchText}
                 onChange={(event) => handleChange(event)}
               />
-              {/* <Link to={`search/${searchText}`}> */}
 
-              <SearchBtn>
-                <Link to={`search/${searchText}`}>
-                  <SearchIcon className='fa-solid fa-magnifying-glass'></SearchIcon>
-                </Link>
+              <SearchBtn onClick={handleSearch}>
+                <SearchIcon className='fa-solid fa-magnifying-glass'></SearchIcon>
               </SearchBtn>
             </SearchContainer>
           </NavbarSearch>

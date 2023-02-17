@@ -45,8 +45,8 @@ const Login = () => {
   const loginUserMutation = useMutation({
     mutationFn: (body: FormStateLogin) => {
       return loginUser(body).then(function (response) {
-        const accessToken = response.data.authorisation.token;
-        const userName: string = response.data.user.name;
+        const accessToken = response?.data?.authorization?.token;
+        const userName: string = response?.data?.user?.name;
         dispatch(addToken(accessToken));
         dispatch(addUserName(userName));
       });

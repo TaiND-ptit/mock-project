@@ -22,14 +22,19 @@ const SearchPage = () => {
   const [searchProducts, setSearchProducts] = useState([]);
 
   useEffect(() => {
-    fetchApi();
+    // fetchApi();
+    let searchP = searchText ? searchText : '';
+    getSearchProducts(searchP).then((response) => {
+      setSearchProducts(response.data.data.data);
+    });
   }, [searchText]);
 
-  const fetchApi = async () => {
-    setSearchProducts([]);
-    const response = await http.get(`search?search=${searchText}`);
-    setSearchProducts(response.data.data.data);
-  };
+  // const fetchApi = async () => {
+  //   setSearchProducts([]);
+  //   const response = await http.get(`search?search=${searchText}`);
+  //   console.log(response.data.data.data);
+  //   setSearchProducts(response.data.data.data);
+  // };
 
   return (
     <Wrapper>

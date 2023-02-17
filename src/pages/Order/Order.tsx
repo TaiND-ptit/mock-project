@@ -37,15 +37,15 @@ const Order = () => {
   const listOrder = data[0]?.map((order: any) => ({
     orderId: order.id,
     totalPrice: order.order_total,
-    status: order.order_status === 1 ? 'Chưa thanh toán' : 'Đã thanh toán'
+    status: order.order_status === 1 ? 'Đơn hàng đang chờ xử lý' : 'Đơn hàng đã giao'
   }));
 
   const unpaidOrder = listOrder?.filter((order: any) => {
-    return order.status === 'Chưa thanh toán';
+    return order.status === 'Đơn hàng đang chờ xử lý';
   });
 
   const paidOrder = listOrder?.filter((order: any) => {
-    return order.status === 'Đã thanh toán';
+    return order.status === 'Đơn hàng đã giao';
   });
 
   const onChange = (key: string) => {};
